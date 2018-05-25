@@ -1,0 +1,17 @@
+Configuring hslua-0.9.5.1...
+Preprocessing library for hslua-0.9.5.1..
+Building library for hslua-0.9.5.1..
+[ 1 of 12] Compiling Foreign.Lua.Api.Types ( .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/Foreign/Lua/Api/Types.hs, .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/Foreign/Lua/Api/Types.o )
+[ 2 of 12] Compiling Foreign.Lua.Api.RawBindings ( .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/Foreign/Lua/Api/RawBindings.hs, .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/Foreign/Lua/Api/RawBindings.o )
+[ 3 of 12] Compiling Foreign.Lua.Api.Constants ( .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/Foreign/Lua/Api/Constants.hs, .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/Foreign/Lua/Api/Constants.o )
+[ 4 of 12] Compiling Foreign.Lua.Types.Lua ( src/Foreign/Lua/Types/Lua.hs, .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/Foreign/Lua/Types/Lua.o )
+[ 5 of 12] Compiling Foreign.Lua.Types.Error ( src/Foreign/Lua/Types/Error.hs, .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/Foreign/Lua/Types/Error.o )
+[ 6 of 12] Compiling Foreign.Lua.Api  ( src/Foreign/Lua/Api.hs, .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/Foreign/Lua/Api.o )
+[ 7 of 12] Compiling Foreign.Lua.Types.FromLuaStack ( src/Foreign/Lua/Types/FromLuaStack.hs, .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/Foreign/Lua/Types/FromLuaStack.o )
+[ 8 of 12] Compiling Foreign.Lua.Types.ToLuaStack ( src/Foreign/Lua/Types/ToLuaStack.hs, .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/Foreign/Lua/Types/ToLuaStack.o )
+[ 9 of 12] Compiling Foreign.Lua.Types ( src/Foreign/Lua/Types.hs, .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/Foreign/Lua/Types.o )
+[10 of 12] Compiling Foreign.Lua.Util ( src/Foreign/Lua/Util.hs, .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/Foreign/Lua/Util.o )
+[11 of 12] Compiling Foreign.Lua.FunctionCalling ( src/Foreign/Lua/FunctionCalling.hs, .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/Foreign/Lua/FunctionCalling.o )
+[12 of 12] Compiling Foreign.Lua      ( src/Foreign/Lua.hs, .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/Foreign/Lua.o )
+Installing library in /home/hoagy/.stack/snapshots/x86_64-linux/lts-11.5/8.2.2/lib/x86_64-linux-ghc-8.2.2/hslua-0.9.5.1-Fv25sHNXRkzwPERXS8CKk
+Registering library for hslua-0.9.5.1..

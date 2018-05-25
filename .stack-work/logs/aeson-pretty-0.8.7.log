@@ -1,0 +1,43 @@
+Configuring aeson-pretty-0.8.7...
+Preprocessing library for aeson-pretty-0.8.7..
+Building library for aeson-pretty-0.8.7..
+[1 of 1] Compiling Data.Aeson.Encode.Pretty ( Data/Aeson/Encode/Pretty.hs, .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/Data/Aeson/Encode/Pretty.o )
+
+[;1mData/Aeson/Encode/Pretty.hs:58:1: [;1m[35mwarning:[0m[0m[;1m [[;1m[35m-Wdeprecations[0m[0m[;1m][0m[0m[;1m
+    Module `Data.Aeson.Encode' is deprecated:
+      Use Data.Aeson or Data.Aeson.Text instead[0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m58 |[0m[0m [;1m[35mimport qualified Data.Aeson.Encode as Aeson[0m[0m
+[;1m[34m   |[0m[0m[;1m[35m ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m
+[;1mData/Aeson/Encode/Pretty.hs:175:21: [;1m[35mwarning:[0m[0m[;1m [[;1m[35m-Wdeprecations[0m[0m[;1m][0m[0m[;1m
+    In the use of `encodeToTextBuilder'
+    (imported from Data.Aeson.Encode):
+    Deprecated: "Use Data.Aeson or Data.Aeson.Text instead"[0m[0m
+[;1m[34m    |[0m[0m
+[;1m[34m175 |[0m[0m     go v          = [;1m[35mAeson.encodeToTextBuilder[0m[0m v
+[;1m[34m    |[0m[0m[;1m[35m                     ^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m
+[;1mData/Aeson/Encode/Pretty.hs:196:3: [;1m[35mwarning:[0m[0m[;1m [[;1m[35m-Wdeprecations[0m[0m[;1m][0m[0m[;1m
+    In the use of `encodeToTextBuilder'
+    (imported from Data.Aeson.Encode):
+    Deprecated: "Use Data.Aeson or Data.Aeson.Text instead"[0m[0m
+[;1m[34m    |[0m[0m
+[;1m[34m196 |[0m[0m   [;1m[35mAeson.encodeToTextBuilder[0m[0m (toJSON k) <> pKeyValSep st <> fromValue st v
+[;1m[34m    |[0m[0m[;1m[35m   ^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m
+[;1mData/Aeson/Encode/Pretty.hs:205:20: [;1m[35mwarning:[0m[0m[;1m [[;1m[35m-Wdeprecations[0m[0m[;1m][0m[0m[;1m
+    In the use of `encodeToTextBuilder'
+    (imported from Data.Aeson.Encode):
+    Deprecated: "Use Data.Aeson or Data.Aeson.Text instead"[0m[0m
+[;1m[34m    |[0m[0m
+[;1m[34m205 |[0m[0m     | otherwise -> [;1m[35mAeson.encodeToTextBuilder[0m[0m $ Number x
+[;1m[34m    |[0m[0m[;1m[35m                    ^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0mPreprocessing executable 'aeson-pretty' for aeson-pretty-0.8.7..
+Building executable 'aeson-pretty' for aeson-pretty-0.8.7..
+[1 of 2] Compiling Paths_aeson_pretty ( .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/aeson-pretty/autogen/Paths_aeson_pretty.hs, .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/aeson-pretty/aeson-pretty-tmp/Paths_aeson_pretty.o )
+[2 of 2] Compiling Main             ( cli-tool/Main.hs, .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/aeson-pretty/aeson-pretty-tmp/Main.o )
+Linking .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/aeson-pretty/aeson-pretty ...
+Installing library in /home/hoagy/.stack/snapshots/x86_64-linux/lts-11.5/8.2.2/lib/x86_64-linux-ghc-8.2.2/aeson-pretty-0.8.7-6l4loZMoQpb9ygCB9zQqs3
+Installing executable aeson-pretty in /home/hoagy/.stack/snapshots/x86_64-linux/lts-11.5/8.2.2/bin
+Registering library for aeson-pretty-0.8.7..

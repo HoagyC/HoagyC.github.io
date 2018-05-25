@@ -1,0 +1,11 @@
+Configuring hs-bibutils-6.2.0.1...
+Preprocessing library for hs-bibutils-6.2.0.1..
+Bibutils.hsc:442:0: warning: "hsc_alignment" redefined
+In file included from .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/Text/Bibutils_hsc_make.c:1:0:
+/home/hoagy/.stack/programs/x86_64-linux/ghc-8.2.2/lib/ghc-8.2.2/template-hsc.h:91:0: note: this is the location of the previous definition
+ #define hsc_alignment(x...)                                           \
+ ^
+Building library for hs-bibutils-6.2.0.1..
+[1 of 1] Compiling Text.Bibutils    ( .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/Text/Bibutils.hs, .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/Text/Bibutils.o )
+Installing library in /home/hoagy/.stack/snapshots/x86_64-linux/lts-11.5/8.2.2/lib/x86_64-linux-ghc-8.2.2/hs-bibutils-6.2.0.1-84TTSwXWiCRJ5Tq4TVL8yp
+Registering library for hs-bibutils-6.2.0.1..
