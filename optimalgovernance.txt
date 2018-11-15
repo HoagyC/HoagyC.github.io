@@ -1,0 +1,25 @@
+I've been trying to find a way of thinking clearly about Brexit, and in general about how to organise governance structures.
+
+I suspect that there is a literature aimed at exactly this, and I plan to look into it but here are my general thoughts before I begin that line of research.
+
+When we are deciding at what level of governance rules over a certain area of society, there are a number of things we wish to consider.
+
+General variables:
+Our preference for experiment vs stabilty
+Our belief in the extent to which we believe the size of a political institution helps or harms its decision making capacity.
+
+Area specific variables:
+How far does the influence of the policy of one zone bleed into the next:
+ - For example, if we were to set drug policy borough by borough, a borough which wanted 
+ 
+This leads to, value of freedom across borders (some potential borders are more costly than others - a wall across Belfast is more harmful than a wall between NI and ROI which is more pernicious than the average international border. 
+The harms related to the existence of borders must be balanced with the degree to which we expect we expect our preferences to be aligned.
+
+We should expect in general that the level of borders to be able to be changed only very rarely (Brexit being the core example of my lifetime) and so when we make this decision we have to imagine that they wil be set for the forseeable future and to expect our relative preferences to change multiple times over this interval.
+ 
+How much to we value a border. The role of a border, in this model, is that it provides a barrier which prevents policy from spreading from one zone to another. A customs union
+Freedom of movement constrains welfare policy.
+Freedom of capital constrains taxation policy, because if people have the ability to move their assets out of the country in response to higher taxation then there becomes a level. This seems a particularly upperclass form of freedom and one that we are therefore not particularly inclined to value. It should however be noted that the ability to move abroad is, at least in the UK, one far more likely to be employed by the young and mobile, and if we wish to distinguish these we should accept that these 
+
+Corportation tax . Do we need full international cooperation to deal with this problem? It seems like a group of countries could agree not to host any firm domiciled in any state that has gone 'rogue', a la Luxembourg, but it seems that in order not to incentivise a gradual race to the bottom you would need still to set clearly defined bounds in policy by agreement.
+How much we believe th
