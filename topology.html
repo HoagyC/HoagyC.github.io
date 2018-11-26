@@ -73,16 +73,17 @@ by evaluating \(f(x)\) at \(x=0\), \(x=1\) and n-1 equally spaced divisions betw
         <p> As in 3. we consider the vector \(\textbf{g}(\textbf{x})=\textbf{f}(\textbf{x})-\textbf{x}\) where \(\textbf{x}\) is the position on the closed triangle in \(\mathbb{R}^2\). Mapping this to the disk we see that the bottom line of the triangle must map to the upper half of the disk, the top corner must map to the bottom sixth and so by colouring points of the triangle according to the direction of \(\textbf{g}(\textbf{x})\) we get a net as seen in 4. and by 5. we know that there exists a point that maps to the centre, therefore, by the same logic as 2., any continuous function from the closed triangle to itself has a fixed point.</p>
         <p>7.</p>
         <p style="color:#666666">
-            (2-D Brouwer fixed point theorem) Show that any continuous function from a compact convex subset of \(\mathbb{R}^2\) to itself has a fixed point. (You may use the fact that given any closed convex subset \(S\) of \(mathbb{R}^n\), the function from \(\mathbb{R}^n\) to \(S\) which projects each point to the nearest point in \(S\) is well defined and continuous.)</p>
+            (2-D Brouwer fixed point theorem) Show that any continuous function from a compact convex subset of \(\mathbb{R}^2\) to itself has a fixed point. (You may use the fact that given any closed convex subset \(S\) of \(\mathbb{R}^n\), the function from \(\mathbb{R}^n\) to \(S\) which projects each point to the nearest point in \(S\) is well defined and continuous.)</p>
         <p> We take our closed convex set \(S\) that has the bounded function \(h:S\rightarrow S\). We take a triangle \(T\) that covers \(S\) so that any point in \(S\) is also in \(T\).</p>
         <p>Now we define a function \(h':T\rightarrow T\) such that \((h'(x)=h(c_s(x))\) where \(c_s(x)\) is the function that maps \(x\) to the nearest point in \(S\).</p>
         <p>By 6. we know that \(h'\) has a fixed point since \(c_s\) is continuous. We know that the fixed point of \(h'\) cannot lie outside \(S\) beacuse the range of \(h'\) is \(S\). This means \(h'\) has a fixed point within \(S\) and since for \(x\in S\), \(h(x)=h'(x)\), \(h\) has a fixed point.</p>
         <p>8.</p>
         <p style="color:#666666"> Reflect on how non-constructive all of the above fixed-point findings are. Find a parameterized class of functions where for each \(t\in[0,1],f_t:[0,1]\rightarrow[0,1]\), and the function \(t\rightarrow f_t\) is continuous, but there is no continuous way to pick out a single fixed pont from each function (i.e. no continuous function \(g\) such that \(g(t)\) is a fixed point of \(f_t\) for all \(t\)).</p>
-        <p>The cleanest example I can find is \(f_t(x)=\frac{1}{1+e^{10(t-x)}\)</p>
+        <p>The cleanest example I can find is \[f_t(x)=\frac{1}{1+e^{10(t-x)}\]</p>
         <p>9.</p>
         <p style="color:#666666"> (Sperner's lemma) Generalize exercises 1 and 4 to an arbitrary dimension simplex.</p>
-        <p> Now things are starting to get tricky. </p>
+        <p> Now things are starting to get tricky but we can still use the intuition from 4., but we'll need to be more explicit. We assume that we know that an odd number of small simplices are (n)-chromatic for an n-1 dimensional simplex. Now take one vertex of our n simplex and for each facet add nodes of the same colour according to a left hand rule so that exactly one n+1 dimension simplex is added which is attached to the vertex we began with and we retain the property that no facet constains a node the same colour as its opposite vertex.</p>
+        <p>Now w
             
                     
 </section>
