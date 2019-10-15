@@ -1,0 +1,14 @@
+Reasons to believe that wants are a significant chunk of function-space that is capable of doing what we want.
+
+Theoretical-
+  Convergence of helpful behaviour for those minds which have desires which are conditional on continuing to be run in order to be fulfilled.
+
+Empirical-
+  Human-
+    The core piece of evidence is that nature looks for functional forms to accomplish a task and it ended up with us. Seems to be a shift towards desire based reasoning rather than domain specific intuitions as we move from animals to humans. Not sure how well this characterises the spectrum of intelliegence found in mammals.
+
+    Also very important that human minds, as part of the set of NN+ - minds that are that are made out of the core structural form of neocortical tissue, RNN plus timing plus whatever other mysteries remain - are capable of a lot of change and remain agent-like. We not only have billions of humans but they are all constantly updating their parameters and also occasionally sustaining damages, and rarely does the desire-centric, agenty conception disappear (though plausibly some effects of meditation could be described in this way).
+
+Technological-
+  Insights are hard. It's much easier to copy than to innovate. We have a ready made example of agentic material in our brains and our ability and desire to study it is increasing as the value of intelligent systems becomes clear - is it fair to say that once ML systems are in use, they are significantly easier to update than it is to initially implement them? Perhaps instead there is archtectural lock-in? Seems unlikely to dominate.
+  There are also many desireable properties of brains other than its agent-like nature that it would be valuable to carry over into artificial systems, notably the stability of their decision making and their ability to learn ffrom sparse or even absent data through reasoning. The search for these abilities may lead in the human and therefore agentic direction even if this is only a small section of the space of highly competent minds.
