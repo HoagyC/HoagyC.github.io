@@ -1,0 +1,11 @@
+LET'S FRICKIN TALK ABOUT THIS CLAY THING
+
+Plan:
+We go to a couple of ceramics places, try and get some advice, some cost estimates to get a long thin strip of the clay that they think is most likely to dry (what do we want? I guess it can't be sloppy or it'll lose shape, probably want it to dry quickly (will we need to do it right by the kiln?). 
+Will need, especially at first, a loud speaker playing a clear sound (just start with a repeated loud bass note, or a crash kinda thing) and somebody moving their hand smoothly across the clay.
+Then we'll need a very sensitive camera to take a photo capable of the 
+Try and do some SLAM sorta thing to work out the movements.
+
+Main problem likely to be that we can't scan it with sufficient detail. Absolute top would be a TEM scan of the clay but that's some serious equipment, maybe ask Welford? Or just whatever the easiest thing would be in order to sense the position of particles in the 10 micron size range (how much more resolution than this would be needed?? Seems possible to do with photograph, the main problem would be distinguishing grey on grey.
+
+Maybe we should have a go under optimal seeming conditions but also just do the scan and try and send out the dataset to whoever is capable of having a go. Should start with just a pulse but don't make the frequency public. If successful could try it again with eg a phrase. 

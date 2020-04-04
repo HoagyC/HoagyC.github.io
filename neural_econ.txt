@@ -1,0 +1,23 @@
+Using neural networks to do my economics homework.
+
+As a way to be
+
+The hope is that it can be used to generate optimal decision making in complex simulations where calculating algebraically in infeasible. Before we get to that, though, we need a toy example, to check that the system is operating correctly.
+
+Start of with a classic! Prisoners' Dilemma! Here's the basic setup: [PD image]
+
+The NN setup is so simple that it took a bit of thought to work out how to put it together - realising that I could remove the input entirely (replaced by a Tensor([1])) took a while.
+
+The first time it all ran smoothly the agents would end up making reasonable choices in a number of setups but they wouldn't defect! Without zeroing the gradients at the beginning of each step I'd inadvenently made them completely altruistic.
+[can i generate a complicated discrete scenario in which this setup in its generality is useful?]
+
+With the bots now defecting and all fellow-feeling stamped out, I could move on to economic simulation. The first testing ground was a simple supply game: each produces an amount q1, q2 and is sold at a price of 100 - (q1 + q2).
+
+The optimal in the simultaneous case is that they both produce 33 units of the goodand this is easily replicated through gradient descent. A trickier case to reproduce is that in which one player declares their quantity before the other. This requires the first player to consider not just the effect that their quantity has on the price but also the effect that their quantity has on the other player's decision, and how this too affects their profit.
+
+This was a much tougher problem to solve through NNs but did result in some very pleasing graphs displaying the trajectories, and lead to some interesting differences in result when using different optimizers.
+[Images of trajectories going right and wrong, and combining different optimizers).]
+
+Up until this point, if everything else was working correctly, all the optimizers could be relied on to quickly converge to an ideal solution, learning rate no object. Now though, with convergence not guaranteed, if this system is to have reliable results then some engineering is needed. 
+
+ 
