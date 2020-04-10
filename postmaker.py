@@ -30,7 +30,7 @@ init_html = """
         <section class="header">
         Posted on {1} by Hoagy
 
-        <\section>
+        </section>
         <section>
         {2}
         </section>
@@ -44,9 +44,7 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
     parser.add_argument('filename', type=str, nargs=1)
-
     args = parser.parse_args()
-    print(args.filename, type(args.filename))
 
     with open(args.filename[0] + '.md', 'r+') as f:
         content = f.readlines()
