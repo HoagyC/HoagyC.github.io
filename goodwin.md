@@ -1,6 +1,6 @@
 Write up: Brian Goodwin - How the Leopard Changed Its Spots
 
-![How the Leopard Changed Its Spots cover image](./goodwin.jpg)
+![How the Leopard Changed Its Spots cover image](./images/goodwin.jpg)
 
 I recently dug out a photo of a set of books recommended to me by Steve Rayhawk, soomeone with perhaps the largest vocabulary of concepts that I've ever encountered and I thought I'd give it a read.
 
