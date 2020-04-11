@@ -1,8 +1,10 @@
 Write up: Brian Goodwin - How the Leopard Changed Its Spots
 
+![How the Leopard Changed Its Spots cover image](./goodwin.jpg)
+
 I recently dug out a photo of a set of books recommended to me by Steve Rayhawk, soomeone with perhaps the largest vocabulary of concepts that I've ever encountered and I thought I'd give it a read.
 
-## Core Thesis
+### Core Thesis
 
 First, the basis thesis. The following passage contains perhaps the most condesnsed description of what the book is trying to get it. It has just spent 20 or so fascinating pages explaining the way that the particular shape of this large, single celled organism develops according to the operation of simple field equations which lead to a limited number of complicated-looking shapes. In particular, the surface 
 
