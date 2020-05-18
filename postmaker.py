@@ -1,6 +1,8 @@
+import os
 import argparse
 import markdown2
 from datetime import date
+from bs4 import BeautifulSoup
 
 init_html = """
 <!doctype html>
@@ -40,13 +42,16 @@ init_html = """
 </html>
 """
 
+link_html = """<p>\n<a href="./{0}.html">{1}</a>\n</p>\n<br>"""
+
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('filename', type=str, nargs=1)
+    parser.add_argument('filename', type=str)
+    parser.add_argument('-add_index', type=bool, default=True)
     args = parser.parse_args()
 
-    with open(args.filename[0] + '.md', 'r+') as f:
+    with open(args.filename + '.md', 'r+') as f:
         content = f.readlines()
         title, body = content[0], content[1:]
 
@@ -57,7 +62,15 @@ if __name__ == "__main__":
 
     final_html = init_html.format(title, today, body)
 
-    with open(args.filename[0] + '.html', 'w+') as g:
+    with open(args.filename + '.html', 'w+') as g:
         g.write(final_html)
 
+    if args.add_index:
+        with open('./index.html', 'r') as html:
+            contents = html.read()
+            b, a = contents.split("<br>")
+            new_html = b + link_html.format(args.filename, title) + a
+
+        with open('index.html', 'w') as new_ind:
+            new_ind.write(new_html)
 
