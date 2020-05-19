@@ -1,3 +1,0 @@
-At some point should really try and do a simple analysis (make a model!) with a few params about whether a rich person is a good person by standard EA lights relative to the average person. Can be assumed that the difference due to indivudal's personal relationships is about the average due to personal relationships maybe giving a total range of like 0.3 lives worth? Then a couple of assumptions about the way in which money is obtained, using a log model of consumptions so minimal value from earning a mil but then you give x% of it away, how does this cash out depending on where you end up spending the money? Would be interesting even though very parameter dependent (but then, like, life is parameter dependent, dude).
-
-heeloheelo
