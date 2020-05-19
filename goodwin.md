@@ -2,7 +2,7 @@ Write up: Brian Goodwin - How the Leopard Changed Its Spots
 
 ![How the Leopard Changed Its Spots cover image](./images/goodwin.jpg)
 
-I recently dug out a photo of a set of books recommended to me by Steve Rayhawk, soomeone with perhaps the largest vocabulary of concepts that I've ever encountered and I thought I'd give it a read.
+I recently dug out a photo of a set of books recommended to me by Steve Rayhawk. Steve uses probably the largest vocabulary of concepts of anyone I've met and I'd quite like to know where they come from, so I thought I'd give it a read.
 
 ### Core Thesis
 
