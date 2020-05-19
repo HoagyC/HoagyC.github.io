@@ -1,4 +1,4 @@
-The Final Resting Place
+The Distribution of You
 
 Something that's on my mind: the multi(re)verse, that which is the total distribution of what ground truth is likely to be (have been?) given the sum total of preserved information. In a future where our human ambitions are totally usurped, this is a core object of foundational value.
 
