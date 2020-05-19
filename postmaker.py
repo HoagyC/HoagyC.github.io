@@ -51,7 +51,7 @@ if __name__ == "__main__":
     parser.add_argument('-add_index', type=bool, default=False)
     args = parser.parse_args()
 
-    with open(args.filename + '.md', 'r+') as f:
+    with open('drafts/' + args.filename + '.md', 'r+') as f:
         content = f.readlines()
         title, body = content[0], content[1:]
 

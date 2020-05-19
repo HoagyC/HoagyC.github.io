@@ -55,8 +55,8 @@ by evaluating \(f(x)\) at \(x=0\), \(x=1\) and n-1 equally spaced divisions betw
        <p> Define \(g(x)=f(x)-x\). At \(x=0\), \(g(x)\geq 0\). At \(x=1\), \(g(x)\leq 0\). By 2. there exists an \(x\) such that \(g(x)=0\) since \(g(x)\) is continuous if \(f(x)\) is continuous. Where \(g(x)=0\), \(f(x)=x\) therefore \(f(x)\) has a fixed point in \([0,1]\). This is not true because for the open interval \((0,1)\) because the fixed point may be exactly at 0 or 1, for example \(f(x)=\frac{x}{2}\) has no fixed point in \((0,1)\).</p>
 
         
-        <p style="color:#666666">4.</p>
-        <p> (2-D Sperner's lemma) Consider a triangle built out of \(n^2\) smaller triangles as shown. Color each vertex red, blue, or green, such that none of the vertices on the large bottom edge are red, none of the vertices on the large left edge are green, and none of the vertices on the large right edge are blue. Show that an odd number of the small triangles will be trichromatic.</p>
+        <p>4.</p>
+        <p style="color:#666666"> (2-D Sperner's lemma) Consider a triangle built out of \(n^2\) smaller triangles as shown. Color each vertex red, blue, or green, such that none of the vertices on the large bottom edge are red, none of the vertices on the large left edge are green, and none of the vertices on the large right edge are blue. Show that an odd number of the small triangles will be trichromatic.</p>
         <p> First let's separate all of the red nodes into groups so that within each group you can get to any other node in that group only passing through red nodes, but not to red nodes in any other group.</p>
 
 <p>Now, we trace out the paths that surround these groups - they immediately look like the paths from Question 1 so this feels like a good start. More precisely, we draw out the paths such that each vertex forms one side of a triangle that has a blue node at its opposite corner. Note that you can have multiple paths stemming from the same group if the group touches the side of the larger triangle, or if it has internal holes.</p>

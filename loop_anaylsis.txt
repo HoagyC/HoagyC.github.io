@@ -1,3 +1,0 @@
-So lets have a look inside a feedback loop.
-
-We have an online network which is constantly being trained to maximise an evaluation function held
