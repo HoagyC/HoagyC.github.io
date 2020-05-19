@@ -14,7 +14,7 @@ The hope is that it can be used to generate optimal decision making in complex s
 
 ## Putting It Together
 
-Start off with a classic! Prisoners' Dilemma! Here's the basic setup: [PD image]
+Start off with a classic! Prisoners' Dilemma! Here's the basic setup: ![PD image](images/pd.png)
 
 The NN setup is so simple that it took a bit of thought to work out how to put it together - realising that I could remove the input entirely (replaced by a Tensor([1])) took a while.
 
