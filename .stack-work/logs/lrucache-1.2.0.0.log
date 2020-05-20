@@ -1,9 +1,0 @@
-Configuring lrucache-1.2.0.0...
-Preprocessing library for lrucache-1.2.0.0..
-Building library for lrucache-1.2.0.0..
-[1 of 4] Compiling Data.Cache.LRU.Internal ( src/Data/Cache/LRU/Internal.hs, .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/Data/Cache/LRU/Internal.o )
-[2 of 4] Compiling Data.Cache.LRU   ( src/Data/Cache/LRU.hs, .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/Data/Cache/LRU.o )
-[3 of 4] Compiling Data.Cache.LRU.IO.Internal ( src/Data/Cache/LRU/IO/Internal.hs, .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/Data/Cache/LRU/IO/Internal.o )
-[4 of 4] Compiling Data.Cache.LRU.IO ( src/Data/Cache/LRU/IO.hs, .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/Data/Cache/LRU/IO.o )
-Installing library in /home/hoagy/.stack/snapshots/x86_64-linux/lts-11.5/8.2.2/lib/x86_64-linux-ghc-8.2.2/lrucache-1.2.0.0-6AIPjbHFuJhBSnjUZC65dW
-Registering library for lrucache-1.2.0.0..
