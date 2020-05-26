@@ -11,7 +11,7 @@ init_html = """
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Markup</title>
+        <title>{3}</title>
         <link rel="stylesheet" href="./default.css" />
     </head>
     <body>
@@ -60,7 +60,7 @@ if __name__ == "__main__":
     body = '\n'.join(body)
     body = markdown2.markdown(body)
 
-    final_html = init_html.format(title, today, body)
+    final_html = init_html.format(title, today, body, args.filename)
 
     with open(args.filename + '.html', 'w+') as g:
         g.write(final_html)
