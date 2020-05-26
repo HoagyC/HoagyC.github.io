@@ -1,4 +1,5 @@
-# Lockdown Project!
+
+## Lockdown Project - Abstract Reasoning Challenge
 
 I'd like to be good at ML. But I don't have the hardware to train big models and I'm cheap as hell so for the most part major projects seem pretty off-limits.
 
