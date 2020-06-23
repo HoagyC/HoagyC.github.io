@@ -1,0 +1,71 @@
+Building Blocks
+
+This post is an exploraiton of thoughts leading from a conversation I had with Spencer Wyman in a taste-swap session with CFAR which has stuck with me.
+
+I'm interested in studying which areas of science and enquiry are capable of 'taking off', where advancements can be built on top of each other. This is central to my fears about AI. In the neural network, AI has found a building block of immense power. Safe AI does not have such a tool. Finding these kind of scalable building blocks seems to be one way of framing the core task of FAI development, and I'd like to develop intuition about how these might be made.
+
+I also wanted to talk about something that seems common to these things when I first come to understand them: a mild sense of disappointment in their simplicity. There's such a fine line between an object of mild intellectual curiousity, and something which adds a fundamentally new tool into our practical toolkit. This surprising disappointment doesn't reflect well on me, I fear, but gives reason to be hopeful for alignment research in not-obviously-promsing areas.
+
+## Disappointing Miracles
+
+'I've found that some of that sticky soil dries really hard near a fire'
+'That's cool, I guess'
+'I've made this sort of paste that also dries really hard and sticks to stuff when it does'
+'Oh.., you gotta show me that some time'
+'I've built a house'
+'Wait, what??'
+
+I worry sometimes that I'll end up as person 2 in the above conversation. This isn't necessarily irrational - most little discoveries won't lead anywhere special - but it doesn't seem like the kind of attitude that sets the stage for hard work and important contributions. Of course one can maintain that attitude while still being useful - by spelling out the grounds for skepticism in spceific terms while making sure to hear out the case in favour. But I'd also like to find the area that I believe in most, so that I could fully commit to research in that area.
+
+### Example Blocks
+
+What exactly would be missing out on with this sort of skepticism? Well my intuition is that most progress is made by the creation of certain building blocks which set the stage for profusions of seemingly larger breakthroughs and creations, by offering the possibility of millions of different combinations of simple elements. This is not to say that these breakthroughs come out of the blue, without prior effort, but that the existence or non-existence of such core, scalable building blocks is what determines the practical value that will result from a field of study.
+
+Here's a few examples of what I have in mind, probably simplified even more than I realise, but I think all are of serious significance.
+
+- Transistor: The ability to use an electric current. Circuitry in general is the ultimate example of this - a few plug-and-play materials like the wire, the electromagnet, the semiconductor and a glorious combinatorial vista is opened up.
+
+- CRISPR: We've found one particular gene that cuts DNA, and suddenly we have a general purpose DNA editor that forms the basis for a huge number of potential experiements and inventions.
+
+- Proteins: the idea that one can create sequences of amino acids made to measure that form catalysts for very particular reactions, in fact all of cell biology, and probably all biology works on a similar basis. DNA, ATP, ion channels, photosynthesis.
+
+- Calculus and Fourier analysis: Maths is obviously full of cool, cross-cutting ideas but these come to mind as basic tools that crop up over and over again in the physical world, I'd be very interested in what people think should go alongside them here. Hash functions, and asymmetric encryption also deserve a mention as something that are far more powerful than might be naively thought (so... it turns intelligible strings into totally unintelligible ones, but, like, really unpredictably?)
+
+- Type systems: There seemed a mismatch between the centrality of type systems to a lot of modern programming and programming theory and the very basic nature of these checks. You specify whether something's an int or a str, maybe you have collections or refinements of these categories, and you check to see if the right inputs have gone into functions. Cool, I guess? And this Maybe thing that Haskell uses? It either has a value or it doesn't? Wow.. 
+
+### Failure to Believe
+
+As the last couple of examples show, I can struggle to see the value of a direction of innovation, even when it's had has the chance to reach its maturity, let alone it has not yet reached this 'building block' status. After noticing this pattern I find it useful, if a bit embarassing, to remember my initial disappointment in learning the basics of these things. This new 'neural network' business just does gradient descent on a complicated function? Disappointing. This 'transistor', whose invention revolutionised the world, is just a material that only conducts if an electric current is passed through? Meh.
+
+The fact that these breakthroughs don't immediately impress (me) may suggest that the real breakthrough lies not in the discovery of these builing blocks, but in learning how to use it. I'm not sure that's the right conclusion. Certainly this is where a lot of the most immediately fruitful work happens, but these things seem to happen quite quickly. Partly this reflects the fact that the people working on these things often know that there's significant potential, and also that once a paradigm is created it becomes relatively easy to find a new direction and suddenly there's an entire field. Old dataset, meet neural network!
+
+I think one part of this is because these new building blocks are likely to run in a direction that's somewhat unexpected. Perhaps it's the same feeling that leads to the steam punk fantasy - you grasp the idea of gears, mechanical advantage, pistons - you love the idea of building huge systems from these basic blocks - an Antikythera mechanism for the modern age - and what you find instead is this funny kind of silicon that conducts in the presence of a magnetic field: a marvel in truth, but without the immediate gratifcation of the imagined contraption.
+
+### Building Blocks in AI Alignment
+
+This feeling is particularly relevant because I try to evaluate possible approaches to safe AI by whether they feel that they can pass this test of being a scalable component. It's not clear whether any of the necessary building blocks for building safe AI, as opposed to just a competent one, are really in place yet, but in terms of the the theory there are some major blocks, like utility functions and Solomonoff induction. 
+
+Got a knotty problem? Try adding Solomonoff induction. If it still doesn't work, add a logical inductor. This seemed to be something like the thought process that ran through a lot of the AI Safety Camp 2019 that I attended. Others enjoyed a sprinkling of sheaf theory but this mostly eluded my comprehension. It seems like iterated amplification is used this way in abstract models of AI design but its true practicality is unknown.
+
+
+
+### Building Blocks in the Human World
+
+While I may be able to overcome my overall skepticism, there's a narrower concern which remains. There are too many building blocks to list in the sciences, but what is needed for safe AI is something more human. One of the core differences between the humanities and the sciences seems to be the abundance of these building blocks of thought and action in the sciences, while humanities, despite probably an equal number of valiantly-applied person-hours to their problems, consist mostly of books without shelves, windows without frames.
+
+This is the core gap to bridge - to finally connect the elusive human to the austere architecture of mathematics. The utility function is a core part of this attempt but seems to be both too weak (as I've written about previously) and too strong to capture the messy necessary facts about humans. Neural networks offer a tempting pathway by their ability to learn messier concepts than have ever been previously codified (though at quite some cost in terms of our understanding).
+
+The other direction of approach to connect the human to the world of mathematics is through statistics: the double blind trial, the multivariate regression, the instrumental variable analysis. These are major contributions to the ability to study the world but often struggle to match the complexity of the world they try to describe - and efforts to build more complicated structure seem to have led more towards the replication crisis than to a, more loose sandstone than reinforced concrete.
+
+Looking again to economics for inspiration, we can see markets as a core building block, one which tries to harness the complexity of humanity, building from another vital invention which is that of currency. Currency again is a fairly unspectacular invention, just the existence of millions of essentially the same thing, where people can be confident of the value of the object. Combined with advice from the study of utility functions, we immediately have the core tools for most of the economist's arsenal.
+
+I'd be interested in any recommendations for reading in this direction: perhaps it is an issue of philosophy of science? It is in some way very similar to the idea of a paradigm, but with more of an engineering focus than the explanatory type of paradigms that I've come across in my (secondary) readings of e.g. Kuhn.
+
+## Conclusions?
+
+The general lesson that I take awy from these things at the moment? A fundamental leap, viewed on its own, is quite likely not to look particularly impressive. There may be a great deal of theory and practice leading up to its creation, but on its own it is not os impressive, perhaps necessarily because it represents a new basic unit, which is always going to look shabby in comparison to more developed techniques. It also is likely to go in a slightly new direction, a direction whose value is only apparent with a deep understanding of the issues in play, or after the fact, when the applications begin.
+
+Doing something complicated will probably reqiure a few basic innovations
+
+Reasons why this might ont be the case: complicated things are harder to understand and therefore to bild with and improve upon, so even if hey were similarly useful, we probably wouldn't see such impressive structures built with them
+
