@@ -6,7 +6,7 @@ I'm interested in studying which areas of science and enquiry are capable of 'ta
 
 I also wanted to talk about something that seems common to these things when I first come to understand them: a mild sense of disappointment in their simplicity. There's such a fine line between an object of mild intellectual curiousity, and something which adds a fundamentally new tool into our practical toolkit. This surprising disappointment doesn't reflect well on me, I fear, but gives reason to be hopeful for alignment research in not-obviously-promsing areas.
 
-## Disappointing Miracles
+### Disappointing Miracles
 
 'I've found that some of that sticky soil dries really hard near a fire'
 'That's cool, I guess'
@@ -16,8 +16,6 @@ I also wanted to talk about something that seems common to these things when I f
 'Wait, what??'
 
 I worry sometimes that I'll end up as person 2 in the above conversation. This isn't necessarily irrational - most little discoveries won't lead anywhere special - but it doesn't seem like the kind of attitude that sets the stage for hard work and important contributions. Of course one can maintain that attitude while still being useful - by spelling out the grounds for skepticism in spceific terms while making sure to hear out the case in favour. But I'd also like to find the area that I believe in most, so that I could fully commit to research in that area.
-
-### Example Blocks
 
 What exactly would be missing out on with this sort of skepticism? Well my intuition is that most progress is made by the creation of certain building blocks which set the stage for profusions of seemingly larger breakthroughs and creations, by offering the possibility of millions of different combinations of simple elements. This is not to say that these breakthroughs come out of the blue, without prior effort, but that the existence or non-existence of such core, scalable building blocks is what determines the practical value that will result from a field of study.
 
@@ -33,8 +31,6 @@ Here's a few examples of what I have in mind, probably simplified even more than
 
 - Type systems: There seemed a mismatch between the centrality of type systems to a lot of modern programming and programming theory and the very basic nature of these checks. You specify whether something's an int or a str, maybe you have collections or refinements of these categories, and you check to see if the right inputs have gone into functions. Cool, I guess? And this Maybe thing that Haskell uses? It either has a value or it doesn't? Wow.. 
 
-### Failure to Believe
-
 As the last couple of examples show, I can struggle to see the value of a direction of innovation, even when it's had has the chance to reach its maturity, let alone it has not yet reached this 'building block' status. After noticing this pattern I find it useful, if a bit embarassing, to remember my initial disappointment in learning the basics of these things. This new 'neural network' business just does gradient descent on a complicated function? Disappointing. This 'transistor', whose invention revolutionised the world, is just a material that only conducts if an electric current is passed through? Meh.
 
 The fact that these breakthroughs don't immediately impress (me) may suggest that the real breakthrough lies not in the discovery of these builing blocks, but in learning how to use it. I'm not sure that's the right conclusion. Certainly this is where a lot of the most immediately fruitful work happens, but these things seem to happen quite quickly. Partly this reflects the fact that the people working on these things often know that there's significant potential, and also that once a paradigm is created it becomes relatively easy to find a new direction and suddenly there's an entire field. Old dataset, meet neural network!
@@ -46,10 +42,6 @@ I think one part of this is because these new building blocks are likely to run 
 This feeling is particularly relevant because I try to evaluate possible approaches to safe AI by whether they feel that they can pass this test of being a scalable component. It's not clear whether any of the necessary building blocks for building safe AI, as opposed to just a competent one, are really in place yet, but in terms of the the theory there are some major blocks, like utility functions and Solomonoff induction. 
 
 Got a knotty problem? Try adding Solomonoff induction. If it still doesn't work, add a logical inductor. This seemed to be something like the thought process that ran through a lot of the AI Safety Camp 2019 that I attended. Others enjoyed a sprinkling of sheaf theory but this mostly eluded my comprehension. It seems like iterated amplification is used this way in abstract models of AI design but its true practicality is unknown.
-
-
-
-### Building Blocks in the Human World
 
 While I may be able to overcome my overall skepticism, there's a narrower concern which remains. There are too many building blocks to list in the sciences, but what is needed for safe AI is something more human. One of the core differences between the humanities and the sciences seems to be the abundance of these building blocks of thought and action in the sciences, while humanities, despite probably an equal number of valiantly-applied person-hours to their problems, consist mostly of books without shelves, windows without frames.
 
