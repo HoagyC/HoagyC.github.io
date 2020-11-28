@@ -18,7 +18,7 @@ Let's start off with GPT-3. 2x10^11 parameters, 1x10^7 dollars. If we hypothesiz
 
 We can imagine that there are three parameters, 
 
-\(c_t\) is the rate at which costs fall
+\\(c_t\\) is the rate at which costs fall
 \(c_v\) is the rate at which value grows with the power of the model.
 \(c_p\) is the rate at which the power of the model grows with the log of the number of parameters.
 
