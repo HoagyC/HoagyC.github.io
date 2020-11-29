@@ -69,7 +69,7 @@ if __name__ == "__main__":
             if len(i) == 1:
                 body += markdown2.markdown(i[0])
             elif len(i) == 2:
-                body += '\(' + i[0] + '\('
+                body += '\(' + i[0] + '\)'
                 body += markdown2.markdown(i[1])
             else:
                 print('Latex parse failure')
