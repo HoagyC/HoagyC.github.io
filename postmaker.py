@@ -49,7 +49,8 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
     parser.add_argument('filename', type=str)
-    parser.add_argument('-add_index', type=bool, default=False)
+    parser.add_argument('--add_index', type=bool, default=False)
+    parser.add_argument('--latex', type=bool, default=False)
     args = parser.parse_args()
 
     with open('drafts/' + args.filename + '.md', 'r+') as f:
@@ -59,7 +60,22 @@ if __name__ == "__main__":
     today = date.today().strftime("%B %d, %Y")
 
     body = '\n'.join(body)
-    body = markdown2.markdown(body)
+
+    if args.latex:
+        body_parts = body.split('\(')
+        sub_parts = [x.split('\)') for x in body_parts]
+        body = ''
+        for i in sub_parts:
+            if len(i) == 1:
+                body += markdown2.markdown(i[0])
+            elif len(i) == 2:
+                body += '\(' + i[0] + '\('
+                body += markdown2.markdown(i[1])
+            else:
+                print('Latex parse failure')
+
+    else:
+        body = markdown2.markdown(body)
 
     final_html = init_html.format(title, today, body, args.filename)
 
