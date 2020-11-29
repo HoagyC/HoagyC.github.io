@@ -70,7 +70,14 @@ if __name__ == "__main__":
                 body += markdown2.markdown(i[0])
             elif len(i) == 2:
                 body += '\(' + i[0] + '\)'
-                body += markdown2.markdown(i[1])
+                new_md = markdown2.markdown(i[1])
+                if i != 0:
+                    new_md = new_md[3:]
+                if i != len(sub_parts):
+                    new_md = new_md[:-5]
+                print(new_md)
+                body += new_md
+
             else:
                 print('Latex parse failure')
 

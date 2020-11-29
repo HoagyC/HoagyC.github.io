@@ -26,12 +26,12 @@ If \(c_v > c_p\) then if there is any size of model which is currently profitabl
 
 If \(c_v < c_p\) then time and multiplayer dynamics come into play. 
 
-If we ignore the diminishing returns of building models equal or weaker than other existing ones, it becomes profitable to build models at the time \(t\) where \(t - t_0 = \frac{1-c_p - c_v}{c_t}\log{p\)
+If we ignore the diminishing returns of building models equal or weaker than other existing ones, it becomes profitable to build models at the time \(t\) where \(t - t_0 = \frac{1-c_p - c_v}{c_t}\log{p}\)
 
 This implies a smooth increase in the model size over time.
 
 Now we can introduce the idea that the value is captured by building models which are more powerful than any that currently exist. 
 
-There is the most powerful model currently in existence \(\tbar{P}\). I assume that all value that is captured by making a new \(tbar{P\) is captured permanently (it would be better here to be able to capture the expected time before the model become obsolete, but perhaps that can wait until later).
+There is the most powerful model currently in existence \(\bar{P}\). I assume that all value that is captured by making a new \(bar{P\) is captured permanently (it would be better here to be able to capture the expected time before the model become obsolete, but perhaps that can wait until later).
 
 Now the value of 
