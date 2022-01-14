@@ -1,2 +1,5 @@
 early-drafts/
+.git/
+venv/
 
+early_drafts
