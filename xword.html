@@ -683,3 +683,367 @@ Converted by exolve-from-text.js from provided text</div></p>
     }
   </style></div> <!-- xlv-frame -->
   </div>
+  <script>
+
+let xlvpFileName = '';
+let xlvpData = '';
+let xlvpFromTextActive = null;
+
+const xlvpFrame = document.getElementById('xlvp-frame');
+const xlvpSrc = document.getElementById('xlvp-src');
+const xlvpSaveButton = document.getElementById('xlvp-save');
+const xlvpFile = document.getElementById('xlvp-file');
+const xlvpText = document.getElementById('xlvp-text');
+const xlvpW = document.getElementById('xlvp-w');
+const xlvpH = document.getElementById('xlvp-h');
+const xlvpInfer = document.getElementById('xlvp-infer');
+const xlvpInferHTML = xlvpInfer.innerHTML;
+const xlvpInferMsg = document.getElementById('xlvp-infer-msg');
+const xlvpChooser = document.getElementById('xlvp-chooser');
+const xlvpChooserStrip = document.getElementById('xlvp-chooser-strip');
+const xlvpLastCrossword = document.getElementById('xlvp-last-crossword');
+let xlvpShowing = false;
+let xlvpPuz = null;
+
+const xlvpStateKey = '42-xlvp-player-state';
+
+function xlvpSaveState() {
+  const state = {
+    'data': xlvpData,
+    'textW': xlvpW.value,
+    'textH': xlvpH.value,
+    'textData': xlvpText.value,
+    'saveDisabled': xlvpSaveButton.disabled,
+  };
+  try {
+    window.localStorage.setItem(xlvpStateKey, JSON.stringify(state));
+  } catch (err) {
+    console.log(err);
+    console.log('Could not save state—local storage is full.');
+  }
+}
+
+function xlvpRestoreState() {
+  let state = window.localStorage.getItem(xlvpStateKey);
+  if (!state) {
+    return;
+  }
+  try {
+    state = JSON.parse(state)
+    if (state.textW) xlvpW.value = state.textW;
+    if (state.textH) xlvpH.value = state.textH;
+    if (state.textData) xlvpText.value = state.textData;
+    if (state.data) {
+      xlvpShowExolveInner(state.data, !state.saveDisabled, true);
+    }
+    console.log('Successfully restored exolve-player state');
+  } catch (err) {
+    console.log(err);
+    console.log('Failed to parse exolve-player state');
+  }
+}
+
+function xlvpDeleteOld(hideChooser=true) {
+  if (xlvpPuz) {
+    xlvpPuz.destroy();
+    xlvpPuz = null;
+  }
+  xlvpFrame.innerHTML = '';
+  if (hideChooser) {
+    xlvpChooser.style.display = 'none';
+    xlvpChooserStrip.innerHTML = '';
+  }
+  xlvpLastCrossword.disabled = true;
+  webifi = document.getElementById('webifi-root');
+  if (webifi) {
+    webifi.remove();
+  }
+}
+
+function xlvpToggleMinimizeCurrent() {
+  if (xlvpShowing) {
+    xlvpLastCrossword.innerHTML = 'Show current crossword';
+    xlvpFrame.style.display = 'none';
+  } else {
+    xlvpLastCrossword.innerHTML = 'Hide current crossword';
+    xlvpFrame.style.display = '';
+  }
+  xlvpShowing = !xlvpShowing;
+}
+
+xlvpDeleteOld();
+
+xlvpLastCrossword.disabled = true;
+xlvpLastCrossword.addEventListener('click', xlvpToggleMinimizeCurrent);
+
+xlvpRestoreState();
+
+function xlvpShowExolve(specs, converted=false, hideChooser=true) {
+  const ret = xlvpShowExolveInner(specs, converted, hideChooser);
+  if (ret) {
+    xlvpSaveState();
+  }
+  return ret;
+}
+
+function xlvpShowExolveInner(specs, converted, hideChooser) {
+  let start = specs.indexOf('exolve-begin')
+  let end = specs.indexOf('exolve-end')
+  if (start < 0 || end < 0 || start >= end) {
+    return false;
+  }
+  while (start > 0 && specs.charAt(start - 1) == ' ') {
+    start--;
+  }
+  const data = specs.substring(start, end) + 'exolve-end';
+
+  xlvpDeleteOld(hideChooser);
+
+  try {
+    xlvpPuz = new Exolve(data, 'xlvp-frame', null, false);
+  } catch (err) {
+    console.log(err);
+    console.log('new Exolve() failed');
+    return false;
+  }
+  if (!xlvpPuz.useWebifi) {
+    xlvpPuz.useWebifi = true;
+    try {
+      xlvpPuz.loadWebifi();
+    } catch (err) {
+      console.log('Disabling webifi because of error: ' + err);
+      xlvpPuz.useWebifi = false;
+    }
+  }
+
+  xlvpData = data;
+  xlvpSrc.innerText = xlvpData;
+  xlvpSaveButton.disabled = !converted;
+  xlvpFrame.style.display = '';
+  xlvpShowing = true;
+  xlvpLastCrossword.innerHTML = 'Hide current crossword';
+  xlvpLastCrossword.disabled = false;
+  xlvpFrame.scrollIntoView();
+  return true;
+}
+
+function xlvpSave() {
+  const data = '' +
+    '<!DOCTYPE html>\n' +
+    '<html lang="en">\n' +
+    '<head>\n' +
+    '<meta charset="utf-8"/>\n' +
+    '<meta name="viewport" content="width=device-width, initial-scale=1"/>\n' +
+    '<link rel="stylesheet" type="text/css" ' +
+    'href="https://viresh-ratnakar.github.io/exolve-m.css?v1.47"/>\n' +
+    '<script src="https://viresh-ratnakar.github.io/exolve-m.js?v1.47">' +
+    '<\/script>\n' +
+    '<\/head>\n' +
+    '<body>\n' +
+    '<script>\n' +
+    'createExolve(`' +
+    `\n${xlvpData}` +
+    '`);\n' +
+    '<\/script>\n' +
+    '<\/body>\n' +
+    '<\/html>\n';
+  const a = document.createElement("a");
+  a.style.display = "none";
+  document.body.appendChild(a);
+  a.href = window.URL.createObjectURL(
+    new Blob([data], {type: "text/html;charset=UTF-8"})
+  );
+  a.setAttribute("download", 'exolve-player-output.html');
+  a.click();
+  window.URL.revokeObjectURL(a.href);
+  document.body.removeChild(a);
+}
+
+function xlvpShowIpuz(specs, fname) {
+  let start = specs.indexOf('{')
+  let end = specs.lastIndexOf('}')
+  if (start < 0 || end < 0 || start >= end) {
+    return false;
+  }
+  const ipuzJSON = specs.substring(start, end) + '}';
+  try {
+    const ipuz = JSON.parse(ipuzJSON);
+    const exolve = exolveFromIpuz(ipuz, fname);
+    if (!exolve) {
+      return false;
+    }
+    return xlvpShowExolve(exolve, true);
+  } catch (err) {
+    console.log(err);
+  }
+  return false;
+}
+function xlvpShowPuz(buffer, fname) {
+  const exolve = exolveFromPuz(buffer, fname);
+  if (!exolve) {
+    return false;
+  }
+  return xlvpShowExolve(exolve, true);
+}
+function xlvpShow(buffer, fname) {
+  let utf8decoder = new TextDecoder();
+  specs = utf8decoder.decode(buffer);
+  if (xlvpShowExolve(specs)) {
+    return;
+  }
+  if (xlvpShowIpuz(specs, fname)) {
+    return;
+  }
+  if (xlvpShowPuz(buffer, fname)) {
+    return;
+  }
+  // This last one is async.
+  xlvpShowText(specs, fname);
+}
+function xlvpOpenFile(f) {
+  if (!f) {
+    return;
+  }
+  let fr = new FileReader();
+  fr.onload = function(){
+    xlvpShow(fr.result, xlvpFileName);
+  }
+  xlvpFileName = f.name;
+  fr.readAsArrayBuffer(f);
+}
+function xlvpOnOpenFile(ev) {
+  let f = xlvpFile.files[0];
+  xlvpFile.value = '';
+  xlvpOpenFile(f);
+}
+function xlvpDrop(ev) {
+  ev.preventDefault();
+
+  let f = null;
+  if (ev.dataTransfer.items && ev.dataTransfer.items.length > 0) {
+    f = ev.dataTransfer.items[0].getAsFile();
+  } else if (ev.dataTransfer.files.length > 0) {
+    f = ev.dataTransfer.files[0];
+  }
+  if (!f) {
+    return;
+  }
+  xlvpOpenFile(f);
+}
+function xlvpDrag(ev) {
+  ev.preventDefault();
+}
+
+function xlvpOnText() {
+  if (xlvpFromTextActive) {
+    /* Cancel as been clicked */
+    xlvpEndFromTextWorker();
+    return;
+  }
+  xlvpShowText(xlvpText.value);
+}
+
+function xlvpEndFromTextWorker() {
+  xlvpInfer.innerHTML = xlvpInferHTML;
+  xlvpInfer.className = 'xlvp-button';
+  xlvpInferMsg.innerHTML = '';
+  if (xlvpFromTextActive) {
+    xlvpFromTextActive.worker.terminate();
+    xlvpFromTextActive = null;
+  }
+}
+
+function xlvpShowText(text, fname='provided text') {
+  if (xlvpFromTextActive) {
+    /* New text data, kill the old worker if active */
+    xlvpEndFromTextWorker();
+  }
+  xlvpInfer.className = 'xlvp-button-working';
+  xlvpInfer.innerHTML = 'Working! [click to cancel]';
+
+  const w = xlvpW.value;
+  const h = xlvpH.value;
+
+  const worker = exolveFromText(w, h, text, fname);
+  if (typeof worker === 'string') {
+    /* There was some error. */
+    const alertMsg = 'Error parsing a ' + w + 'x' + h +
+                     ' grid from ' + fname + ': ' + worker;
+    alert(alertMsg);
+    xlvpEndFromTextWorker();
+    return;
+  }
+  xlvpFromTextActive = {
+    worker: worker,
+    w: w,
+    h: h,
+    text: text,
+    fname: fname,
+  };
+  worker.onmessage = (e) => {
+    xlvpHandleFromTextMessage(e.data);
+  };
+}
+
+function xlvpHandleFromTextMessage(message) {
+  if (!xlvpFromTextActive) {
+    return;
+  }
+
+  if (message.update) {
+    xlvpInferMsg.innerHTML = message.update;
+    return;
+  }
+
+  const saved = xlvpFromTextActive;
+
+  xlvpEndFromTextWorker();
+
+  const matches = message.results || [];
+  if (matches.length == 0) {
+    alert('Could not parse or infer a ' + saved.w + 'x' + saved.h +
+          ' grid from ' + saved.fname);
+    return;
+  }
+
+  console.log('Was able to infer ' + message.results.length + ' unique grid(s)');
+  xlvpDeleteOld();
+  if (matches.length > 1) {
+    let html = '<table><tr>';
+    for (let i = 0; i < matches.length; i++) {
+      html += `<td id="xlvp-chooser-${i}" class="xlvp-chooser-entry"></td>`;
+    }
+    html += '</tr></table>'
+    xlvpChooserStrip.innerHTML = html;
+    for (let i = 0; i < matches.length; i++) {
+      const smallSpecs = `
+  exolve-begin
+    exolve-width: ${saved.w}
+    exolve-height: ${saved.h}
+    exolve-option: ignore-unclued ignore-enum-mismatch
+    exolve-grid:
+      ${matches[i].gridSpecLines}
+  exolve-end`;
+      const smallXlv = new Exolve(smallSpecs, `xlvp-chooser-${i}`, function(puz) {
+        document.getElementById(puz.prefix + '-controls-etc').style.display = 'none';
+        document.getElementById(puz.prefix + '-clear-area').style.display = 'none';
+      }, false, 0, 150, false);
+      const chooser = document.getElementById(`xlvp-chooser-${i}`);
+      chooser.addEventListener('click', () => {
+        xlvpShowExolve(matches[i].exolve, true, false);
+        chooser.classList.add('xlvp-chooser-entry-sel');
+        for (let j = 0; j < matches.length; j++) {
+          if (j == i) {
+            continue;
+          }
+          document.getElementById(`xlvp-chooser-${j}`).className = 'xlvp-chooser-entry';
+        }
+      });
+    }
+    xlvpChooser.style.display = '';
+  } else {
+    const spec = matches[0].exolve;
+    xlvpShowExolve(spec, true);
+  }
+}
+</script>
