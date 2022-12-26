@@ -1,0 +1,585 @@
+<div id="xlvp-frame">
+    <div id="webifi-root" class="webifi-root" style="display: none;">
+    <style>
+    .webifi-root {
+      position: relative;
+      font-size: 12px;
+      font-family: monospace;
+      box-sizing: border-box;
+      border: 1px solid black;
+    }
+    .webifi-log {
+      height: 200px;
+      overflow-y: auto;
+      box-sizing: border-box;
+    }
+    .webifi-log-entry {
+      padding: 4px;
+      box-sizing: border-box;
+    }
+    .webifi-input-wrapper {
+      box-sizing: border-box;
+      border: none;
+      overflow-x: hidden;
+    }
+    .webifi-input {
+      font-size: 12px;
+      font-family: monospace;
+      border: none;
+      padding: 0 0 6px 4px;
+      outline: none;
+      box-sizing: border-box;
+    }
+    .webifi-button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      max-width: 10%;
+      border-radius: 12px;
+      padding: 4px 4px 2px;
+      border: 1px solid magenta;
+      background: white;
+    }
+    .webifi-button:hover {
+      border: 1px solid darkgreen;
+      background: lightyellow;
+    }
+    .webifi-icon {
+      max-width: 100%;
+    }
+    </style>
+    <div class="webifi-button" title="Webifi: An interactive fiction-esque chat interface for the web: Click here to open help in a new tab">
+      <a href="https://github.com/viresh-ratnakar/webifi#readme" target="_blank">
+      <img class="webifi-icon" src="https://viresh-ratnakar.github.io/webifi-icon.png" width="100px" alt="Webifi icon">
+      </a>
+    </div>
+    <div id="webifi-log" class="webifi-log"><div class="webifi-log-entry">Hi! I am Webifi, an interactive fiction-esque chat interface for the web.</div><div class="webifi-log-entry">My current version is Webifi v0.07, September 24, 2022.</div><div class="webifi-log-entry">You can use the command "audio on" to turn on the audio interface.</div><div class="webifi-log-entry">You can say "help" to get a full list of commands, or you can say "help" followed by a topic.</div><div class="webifi-log-entry">You are using Webifi to solve a crossword. It's a 15 by 15 grid with 34 clues.</div><div class="webifi-log-entry">You can work through the crossword mostly using four basic commands:<ul><li>"clue" gets the current clue, "entry" gets the letters entered so far, "type" followed by some letters types them into the crossword, and "next best" takes you to the next most solvable clue.</li><li>Some other useful crossword commands are "next", "back", "anagrams", "define", and "matches".</li></ul></div></div>
+    <hr>
+    <div id="webifi-input-wrapper" class="webifi-input-wrapper">
+      <input id="webifi-input" class="webifi-input" type="text" autocomplete="off" spellcheck="false" placeholder="Enter a command such as 'help' or 'hello'" size="1000" maxlength="1000">
+      
+    </div>
+  </div><div class="xlv-frame xlv-flex-col" tabindex="-1" id="xlv3-frame">
+      <h2 id="xlv3-title" class="xlv-title" style="display: none;"></h2>
+      <div id="xlv3-setter" class="xlv-setter" style="display: none;"></div>
+      <div id="xlv3-preamble" class="xlv-preamble"></div>
+      <div id="xlv3-clear-area" class="xlv-clear-area"></div>
+      <div id="xlv3-grid-and-clues" class="xlv-grid-and-clues-flex">
+        <div id="xlv3-grid-panel" class="xlv-grid-panel">
+          <div id="xlv3-grid-parent-centerer" class="xlv-grid-parent-centerer">
+            <div id="xlv3-curr-clue" class="xlv-curr-clue" style="background: white; width: 481px; max-height: 60px; margin-top: -28px; left: 4px;"><span>
+      <button id="xlv3-curr-clue-prev" class="xlv-small-button xlv-nextprev" title="Previous clue.">‹</button>
+      <button id="xlv3-curr-clue-next" class="xlv-small-button xlv-nextprev" title="Next clue.">›</button></span><span id="xlv3-curr-clue-label" class="xlv-curr-clue-label">1a. </span><span id="xlv3-curr-clue-text">Composer of sound of the nation. (7)</span></div>
+            <div id="xlv3-grid-parent" class="xlv-grid-parent">
+              <svg id="xlv3-grid" class="xlv-grid" zoomAndPan="disable" viewBox="0 0 481 481" width="481" height="481"><rect x="0" y="0" width="481" height="481" style="fill: black;"></rect><g><rect x="1" y="1" width="31" height="31" style="fill: rgb(255, 182, 180);"></rect><text x="16.5" y="21.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text><text x="2" y="10" class="xlv-cell-num" style="fill: black; font-size: 10px;">1</text></g><g><rect x="33" y="1" width="31" height="31" style="fill: mistyrose;"></rect><text x="48.5" y="21.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="65" y="1" width="31" height="31" style="fill: mistyrose;"></rect><text x="80.5" y="21.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text><text x="66" y="10" class="xlv-cell-num" style="fill: black; font-size: 10px;">2</text></g><g><rect x="97" y="1" width="31" height="31" style="fill: mistyrose;"></rect><text x="112.5" y="21.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="129" y="1" width="31" height="31" style="fill: mistyrose;"></rect><text x="144.5" y="21.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text><text x="130" y="10" class="xlv-cell-num" style="fill: black; font-size: 10px;">3</text></g><g><rect x="161" y="1" width="31" height="31" style="fill: mistyrose;"></rect><text x="176.5" y="21.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="193" y="1" width="31" height="31" style="fill: mistyrose;"></rect><text x="208.5" y="21.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text><text x="194" y="10" class="xlv-cell-num" style="fill: black; font-size: 10px;">4</text></g><g><rect x="257" y="1" width="31" height="31" style="fill: white;"></rect><text x="272.5" y="21.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text><text x="258" y="10" class="xlv-cell-num" style="fill: black; font-size: 10px;">5</text></g><g><rect x="289" y="1" width="31" height="31" style="fill: white;"></rect><text x="304.5" y="21.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="321" y="1" width="31" height="31" style="fill: white;"></rect><text x="336.5" y="21.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text><text x="322" y="10" class="xlv-cell-num" style="fill: black; font-size: 10px;">6</text></g><g><rect x="353" y="1" width="31" height="31" style="fill: white;"></rect><text x="368.5" y="21.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="385" y="1" width="31" height="31" style="fill: white;"></rect><text x="400.5" y="21.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text><text x="386" y="10" class="xlv-cell-num" style="fill: black; font-size: 10px;">7</text></g><g><rect x="417" y="1" width="31" height="31" style="fill: white;"></rect><text x="432.5" y="21.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="449" y="1" width="31" height="31" style="fill: white;"></rect><text x="464.5" y="21.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text><text x="450" y="10" class="xlv-cell-num" style="fill: black; font-size: 10px;">8</text></g><g><rect x="1" y="33" width="31" height="31" style="fill: white;"></rect><text x="16.5" y="53.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="65" y="33" width="31" height="31" style="fill: white;"></rect><text x="80.5" y="53.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="129" y="33" width="31" height="31" style="fill: white;"></rect><text x="144.5" y="53.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="193" y="33" width="31" height="31" style="fill: white;"></rect><text x="208.5" y="53.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="257" y="33" width="31" height="31" style="fill: white;"></rect><text x="272.5" y="53.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="321" y="33" width="31" height="31" style="fill: white;"></rect><text x="336.5" y="53.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="385" y="33" width="31" height="31" style="fill: white;"></rect><text x="400.5" y="53.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="449" y="33" width="31" height="31" style="fill: white;"></rect><text x="464.5" y="53.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="1" y="65" width="31" height="31" style="fill: white;"></rect><text x="16.5" y="85.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text><text x="2" y="74" class="xlv-cell-num" style="fill: black; font-size: 10px;">9</text></g><g><rect x="33" y="65" width="31" height="31" style="fill: white;"></rect><text x="48.5" y="85.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="65" y="65" width="31" height="31" style="fill: white;"></rect><text x="80.5" y="85.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="97" y="65" width="31" height="31" style="fill: white;"></rect><text x="112.5" y="85.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="129" y="65" width="31" height="31" style="fill: white;"></rect><text x="144.5" y="85.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="193" y="65" width="31" height="31" style="fill: white;"></rect><text x="208.5" y="85.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text><text x="194" y="74" class="xlv-cell-num" style="fill: black; font-size: 10px;">10</text></g><g><rect x="225" y="65" width="31" height="31" style="fill: white;"></rect><text x="240.5" y="85.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="257" y="65" width="31" height="31" style="fill: white;"></rect><text x="272.5" y="85.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="289" y="65" width="31" height="31" style="fill: white;"></rect><text x="304.5" y="85.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="321" y="65" width="31" height="31" style="fill: white;"></rect><text x="336.5" y="85.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="353" y="65" width="31" height="31" style="fill: white;"></rect><text x="368.5" y="85.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="385" y="65" width="31" height="31" style="fill: white;"></rect><text x="400.5" y="85.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="417" y="65" width="31" height="31" style="fill: white;"></rect><text x="432.5" y="85.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="449" y="65" width="31" height="31" style="fill: white;"></rect><text x="464.5" y="85.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="1" y="97" width="31" height="31" style="fill: white;"></rect><text x="16.5" y="117.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="65" y="97" width="31" height="31" style="fill: white;"></rect><text x="80.5" y="117.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="129" y="97" width="31" height="31" style="fill: white;"></rect><text x="144.5" y="117.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="193" y="97" width="31" height="31" style="fill: white;"></rect><text x="208.5" y="117.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="257" y="97" width="31" height="31" style="fill: white;"></rect><text x="272.5" y="117.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="321" y="97" width="31" height="31" style="fill: white;"></rect><text x="336.5" y="117.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="385" y="97" width="31" height="31" style="fill: white;"></rect><text x="400.5" y="117.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="449" y="97" width="31" height="31" style="fill: white;"></rect><text x="464.5" y="117.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="1" y="129" width="31" height="31" style="fill: white;"></rect><text x="16.5" y="149.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text><text x="2" y="138" class="xlv-cell-num" style="fill: black; font-size: 10px;">11</text></g><g><rect x="33" y="129" width="31" height="31" style="fill: white;"></rect><text x="48.5" y="149.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="65" y="129" width="31" height="31" style="fill: white;"></rect><text x="80.5" y="149.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="97" y="129" width="31" height="31" style="fill: white;"></rect><text x="112.5" y="149.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="129" y="129" width="31" height="31" style="fill: white;"></rect><text x="144.5" y="149.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="161" y="129" width="31" height="31" style="fill: white;"></rect><text x="176.5" y="149.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="225" y="129" width="31" height="31" style="fill: white;"></rect><text x="240.5" y="149.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text><text x="226" y="138" class="xlv-cell-num" style="fill: black; font-size: 10px;">12</text></g><g><rect x="257" y="129" width="31" height="31" style="fill: white;"></rect><text x="272.5" y="149.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="289" y="129" width="31" height="31" style="fill: white;"></rect><text x="304.5" y="149.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="321" y="129" width="31" height="31" style="fill: white;"></rect><text x="336.5" y="149.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="353" y="129" width="31" height="31" style="fill: white;"></rect><text x="368.5" y="149.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="385" y="129" width="31" height="31" style="fill: white;"></rect><text x="400.5" y="149.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="417" y="129" width="31" height="31" style="fill: white;"></rect><text x="432.5" y="149.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="449" y="129" width="31" height="31" style="fill: white;"></rect><text x="464.5" y="149.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="1" y="161" width="31" height="31" style="fill: white;"></rect><text x="16.5" y="181.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="65" y="161" width="31" height="31" style="fill: white;"></rect><text x="80.5" y="181.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="129" y="161" width="31" height="31" style="fill: white;"></rect><text x="144.5" y="181.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="193" y="161" width="31" height="31" style="fill: white;"></rect><text x="208.5" y="181.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text><text x="194" y="170" class="xlv-cell-num" style="fill: black; font-size: 10px;">13</text></g><g><rect x="257" y="161" width="31" height="31" style="fill: white;"></rect><text x="272.5" y="181.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="321" y="161" width="31" height="31" style="fill: white;"></rect><text x="336.5" y="181.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="1" y="193" width="31" height="31" style="fill: white;"></rect><text x="16.5" y="213.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text><text x="2" y="202" class="xlv-cell-num" style="fill: black; font-size: 10px;">14</text></g><g><rect x="33" y="193" width="31" height="31" style="fill: white;"></rect><text x="48.5" y="213.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="65" y="193" width="31" height="31" style="fill: white;"></rect><text x="80.5" y="213.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="97" y="193" width="31" height="31" style="fill: white;"></rect><text x="112.5" y="213.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="129" y="193" width="31" height="31" style="fill: white;"></rect><text x="144.5" y="213.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="193" y="193" width="31" height="31" style="fill: white;"></rect><text x="208.5" y="213.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text><text x="194" y="202" class="xlv-cell-num" style="fill: black; font-size: 10px;">15</text></g><g><rect x="225" y="193" width="31" height="31" style="fill: white;"></rect><text x="240.5" y="213.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="257" y="193" width="31" height="31" style="fill: white;"></rect><text x="272.5" y="213.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="289" y="193" width="31" height="31" style="fill: white;"></rect><text x="304.5" y="213.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="353" y="193" width="31" height="31" style="fill: white;"></rect><text x="368.5" y="213.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text><text x="354" y="202" class="xlv-cell-num" style="fill: black; font-size: 10px;">16</text></g><g><rect x="385" y="193" width="31" height="31" style="fill: white;"></rect><text x="400.5" y="213.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text><text x="386" y="202" class="xlv-cell-num" style="fill: black; font-size: 10px;">17</text></g><g><rect x="417" y="193" width="31" height="31" style="fill: white;"></rect><text x="432.5" y="213.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="449" y="193" width="31" height="31" style="fill: white;"></rect><text x="464.5" y="213.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text><text x="450" y="202" class="xlv-cell-num" style="fill: black; font-size: 10px;">18</text></g><g><rect x="1" y="225" width="31" height="31" style="fill: white;"></rect><text x="16.5" y="245.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="65" y="225" width="31" height="31" style="fill: white;"></rect><text x="80.5" y="245.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="129" y="225" width="31" height="31" style="fill: white;"></rect><text x="144.5" y="245.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="193" y="225" width="31" height="31" style="fill: white;"></rect><text x="208.5" y="245.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="257" y="225" width="31" height="31" style="fill: white;"></rect><text x="272.5" y="245.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="321" y="225" width="31" height="31" style="fill: white;"></rect><text x="336.5" y="245.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text><text x="322" y="234" class="xlv-cell-num" style="fill: black; font-size: 10px;">19</text></g><g><rect x="385" y="225" width="31" height="31" style="fill: white;"></rect><text x="400.5" y="245.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="449" y="225" width="31" height="31" style="fill: white;"></rect><text x="464.5" y="245.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="1" y="257" width="31" height="31" style="fill: white;"></rect><text x="16.5" y="277.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text><text x="2" y="266" class="xlv-cell-num" style="fill: black; font-size: 10px;">20</text></g><g><rect x="33" y="257" width="31" height="31" style="fill: white;"></rect><text x="48.5" y="277.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="65" y="257" width="31" height="31" style="fill: white;"></rect><text x="80.5" y="277.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="97" y="257" width="31" height="31" style="fill: white;"></rect><text x="112.5" y="277.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="161" y="257" width="31" height="31" style="fill: white;"></rect><text x="176.5" y="277.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text><text x="162" y="266" class="xlv-cell-num" style="fill: black; font-size: 10px;">21</text></g><g><rect x="193" y="257" width="31" height="31" style="fill: white;"></rect><text x="208.5" y="277.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="225" y="257" width="31" height="31" style="fill: white;"></rect><text x="240.5" y="277.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="257" y="257" width="31" height="31" style="fill: white;"></rect><text x="272.5" y="277.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="321" y="257" width="31" height="31" style="fill: white;"></rect><text x="336.5" y="277.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text><text x="322" y="266" class="xlv-cell-num" style="fill: black; font-size: 10px;">22</text></g><g><rect x="353" y="257" width="31" height="31" style="fill: white;"></rect><text x="368.5" y="277.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="385" y="257" width="31" height="31" style="fill: white;"></rect><text x="400.5" y="277.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="417" y="257" width="31" height="31" style="fill: white;"></rect><text x="432.5" y="277.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="449" y="257" width="31" height="31" style="fill: white;"></rect><text x="464.5" y="277.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="129" y="289" width="31" height="31" style="fill: white;"></rect><text x="144.5" y="309.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text><text x="130" y="298" class="xlv-cell-num" style="fill: black; font-size: 10px;">23</text></g><g><rect x="193" y="289" width="31" height="31" style="fill: white;"></rect><text x="208.5" y="309.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="257" y="289" width="31" height="31" style="fill: white;"></rect><text x="272.5" y="309.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="321" y="289" width="31" height="31" style="fill: white;"></rect><text x="336.5" y="309.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="385" y="289" width="31" height="31" style="fill: white;"></rect><text x="400.5" y="309.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="449" y="289" width="31" height="31" style="fill: white;"></rect><text x="464.5" y="309.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="1" y="321" width="31" height="31" style="fill: white;"></rect><text x="16.5" y="341.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text><text x="2" y="330" class="xlv-cell-num" style="fill: black; font-size: 10px;">24</text></g><g><rect x="33" y="321" width="31" height="31" style="fill: white;"></rect><text x="48.5" y="341.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="65" y="321" width="31" height="31" style="fill: white;"></rect><text x="80.5" y="341.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text><text x="66" y="330" class="xlv-cell-num" style="fill: black; font-size: 10px;">25</text></g><g><rect x="97" y="321" width="31" height="31" style="fill: white;"></rect><text x="112.5" y="341.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="129" y="321" width="31" height="31" style="fill: white;"></rect><text x="144.5" y="341.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="161" y="321" width="31" height="31" style="fill: white;"></rect><text x="176.5" y="341.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="193" y="321" width="31" height="31" style="fill: white;"></rect><text x="208.5" y="341.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="225" y="321" width="31" height="31" style="fill: white;"></rect><text x="240.5" y="341.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="289" y="321" width="31" height="31" style="fill: white;"></rect><text x="304.5" y="341.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text><text x="290" y="330" class="xlv-cell-num" style="fill: black; font-size: 10px;">26</text></g><g><rect x="321" y="321" width="31" height="31" style="fill: white;"></rect><text x="336.5" y="341.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="353" y="321" width="31" height="31" style="fill: white;"></rect><text x="368.5" y="341.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="385" y="321" width="31" height="31" style="fill: white;"></rect><text x="400.5" y="341.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="417" y="321" width="31" height="31" style="fill: white;"></rect><text x="432.5" y="341.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="449" y="321" width="31" height="31" style="fill: white;"></rect><text x="464.5" y="341.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="1" y="353" width="31" height="31" style="fill: white;"></rect><text x="16.5" y="373.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="65" y="353" width="31" height="31" style="fill: white;"></rect><text x="80.5" y="373.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="129" y="353" width="31" height="31" style="fill: white;"></rect><text x="144.5" y="373.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="193" y="353" width="31" height="31" style="fill: white;"></rect><text x="208.5" y="373.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="257" y="353" width="31" height="31" style="fill: white;"></rect><text x="272.5" y="373.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text><text x="258" y="362" class="xlv-cell-num" style="fill: black; font-size: 10px;">27</text></g><g><rect x="321" y="353" width="31" height="31" style="fill: white;"></rect><text x="336.5" y="373.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="385" y="353" width="31" height="31" style="fill: white;"></rect><text x="400.5" y="373.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="449" y="353" width="31" height="31" style="fill: white;"></rect><text x="464.5" y="373.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="1" y="385" width="31" height="31" style="fill: white;"></rect><text x="16.5" y="405.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text><text x="2" y="394" class="xlv-cell-num" style="fill: black; font-size: 10px;">28</text></g><g><rect x="33" y="385" width="31" height="31" style="fill: white;"></rect><text x="48.5" y="405.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="65" y="385" width="31" height="31" style="fill: white;"></rect><text x="80.5" y="405.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="97" y="385" width="31" height="31" style="fill: white;"></rect><text x="112.5" y="405.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="129" y="385" width="31" height="31" style="fill: white;"></rect><text x="144.5" y="405.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="161" y="385" width="31" height="31" style="fill: white;"></rect><text x="176.5" y="405.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="193" y="385" width="31" height="31" style="fill: white;"></rect><text x="208.5" y="405.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="225" y="385" width="31" height="31" style="fill: white;"></rect><text x="240.5" y="405.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="257" y="385" width="31" height="31" style="fill: white;"></rect><text x="272.5" y="405.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="321" y="385" width="31" height="31" style="fill: white;"></rect><text x="336.5" y="405.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text><text x="322" y="394" class="xlv-cell-num" style="fill: black; font-size: 10px;">29</text></g><g><rect x="353" y="385" width="31" height="31" style="fill: white;"></rect><text x="368.5" y="405.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="385" y="385" width="31" height="31" style="fill: white;"></rect><text x="400.5" y="405.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="417" y="385" width="31" height="31" style="fill: white;"></rect><text x="432.5" y="405.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="449" y="385" width="31" height="31" style="fill: white;"></rect><text x="464.5" y="405.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="1" y="417" width="31" height="31" style="fill: white;"></rect><text x="16.5" y="437.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="65" y="417" width="31" height="31" style="fill: white;"></rect><text x="80.5" y="437.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="129" y="417" width="31" height="31" style="fill: white;"></rect><text x="144.5" y="437.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="193" y="417" width="31" height="31" style="fill: white;"></rect><text x="208.5" y="437.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="257" y="417" width="31" height="31" style="fill: white;"></rect><text x="272.5" y="437.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="321" y="417" width="31" height="31" style="fill: white;"></rect><text x="336.5" y="437.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="385" y="417" width="31" height="31" style="fill: white;"></rect><text x="400.5" y="437.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="449" y="417" width="31" height="31" style="fill: white;"></rect><text x="464.5" y="437.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="1" y="449" width="31" height="31" style="fill: white;"></rect><text x="16.5" y="469.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text><text x="2" y="458" class="xlv-cell-num" style="fill: black; font-size: 10px;">30</text></g><g><rect x="33" y="449" width="31" height="31" style="fill: white;"></rect><text x="48.5" y="469.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="65" y="449" width="31" height="31" style="fill: white;"></rect><text x="80.5" y="469.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="97" y="449" width="31" height="31" style="fill: white;"></rect><text x="112.5" y="469.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="129" y="449" width="31" height="31" style="fill: white;"></rect><text x="144.5" y="469.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="161" y="449" width="31" height="31" style="fill: white;"></rect><text x="176.5" y="469.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="193" y="449" width="31" height="31" style="fill: white;"></rect><text x="208.5" y="469.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="257" y="449" width="31" height="31" style="fill: white;"></rect><text x="272.5" y="469.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text><text x="258" y="458" class="xlv-cell-num" style="fill: black; font-size: 10px;">31</text></g><g><rect x="289" y="449" width="31" height="31" style="fill: white;"></rect><text x="304.5" y="469.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="321" y="449" width="31" height="31" style="fill: white;"></rect><text x="336.5" y="469.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="353" y="449" width="31" height="31" style="fill: white;"></rect><text x="368.5" y="469.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="385" y="449" width="31" height="31" style="fill: white;"></rect><text x="400.5" y="469.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="417" y="449" width="31" height="31" style="fill: white;"></rect><text x="432.5" y="469.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g><g><rect x="449" y="449" width="31" height="31" style="fill: white;"></rect><text x="464.5" y="469.925" text-anchor="middle" editable="simple" class="xlv-cell-text" style="fill: black; font-size: 16px;"></text></g></svg>
+              <div id="xlv3-grid-input-wrapper" class="xlv-grid-input-wrapper" style="left: 1px; top: 1px; width: 31px; height: 29px; font-size: 16px;"><input id="xlv3-grid-input" type="text" maxlength="2" autocomplete="off" spellcheck="false" class="xlv-grid-input xlv-cell-text" style="caret-color: gray; font-size: 16px;"><div id="xlv3-grid-input-rarr" class="xlv-grid-input-rarr" style="color: white; font-size: 13px;">▸</div>
+       <div id="xlv3-grid-input-larr" class="xlv-grid-input-larr" style="color: white; font-size: 13px; display: none;">◂</div>
+       <div id="xlv3-grid-input-darr" class="xlv-grid-input-darr" style="color: white; font-size: 13px; display: none;">▾</div>
+       <div id="xlv3-grid-input-uarr" class="xlv-grid-input-uarr" style="color: white; font-size: 13px; display: none;">▴</div></div>
+              <div id="xlv3-nina-group" style="display:none;left:0;top:0"></div>
+              <div id="xlv3-colour-group" style="display:none;left:0;top:0"></div>
+            </div> <!-- xlv-grid-parent -->
+          </div> <!-- xlv-grid-parent-centerer -->
+          <div id="xlv3-controls-etc" class="xlv-controls-etc">
+            <div id="xlv3-controls" class="xlv-controls xlv-wide-box">
+              <div id="xlv3-button-row-1" class="xlv-controls-row">
+                <button id="xlv3-clear" class="xlv-button" title="Clear highlighted clues and squares. Clear crossers from full clues with a second click. Shortcut: Ctrl-q.">Clear this</button>
+                <button id="xlv3-clear-all" class="xlv-button" title="Clear everything! A second click clears all placeholder entries in clues without known cells. Shortcut: Ctrl-Q.">Clear all!</button>
+                <button id="xlv3-check" class="xlv-button" style="display:none">Check this</button>
+                <button id="xlv3-check-all" class="xlv-button" style="display:none">Check all!</button>
+              </div> <!-- xlv-button-row-1 -->
+              <div id="xlv3-buttons-extra-row" class="xlv-controls-row" style="display:none">
+                <button id="xlv3-checkcell" class="xlv-button" style="display:none">Check cell</button>
+                <button id="xlv3-revealcell" class="xlv-button" style="display:none" disabled="">Reveal cell</button>
+              </div>
+              <div id="xlv3-button-row-2" class="xlv-controls-row">
+                <button id="xlv3-reveal" class="xlv-button" style="display:none" disabled="">Reveal this</button>
+                <button id="xlv3-ninas" class="xlv-button" style="display:none">Show ninas</button>
+                <button id="xlv3-reveal-all" class="xlv-button" style="display:none">Reveal all!</button>
+              </div> <!-- xlv-button-row-2 -->
+            </div> <!-- xlv-controls -->
+            <div id="xlv3-errors" class="xlv-errors"></div>
+            <div id="xlv3-status" class="xlv-status">
+              <span id="xlv3-squares-filled">Squares filled</span>:
+              <span id="xlv3-status-num-filled">0</span>/<span id="xlv3-status-num-total">162</span>
+            </div> <!-- xlv-status -->
+            <div id="xlv3-saving" class="xlv-wide-box xlv-saving">
+              <span id="xlv3-saving-msg">
+              Your entries are auto-saved in the browser's local storage.
+              </span>
+            </div> <!-- xlv-saving -->
+            <div id="xlv3-small-print" class="xlv-wide-box xlv-small-print">
+              <a id="xlv3-tools-link" href="" class="xlv-toggler" title="Crossword software: Exolve v1.47 December 19, 2022: Show/hide panel with info/help and links to report a bug, manage storage, access a scratch pad, etc.">Exolve</a>
+              <a id="xlv3-print" href="" class="xlv-toggler" title="Show/hide panel for printing or creating PDFs.">Print</a>
+              <a id="xlv3-notes" href="" class="xlv-toggler" title="Show/hide notes panel.">Notes</a>
+              <a id="xlv3-webifi" href="" class="xlv-toggler" title="Toggle Webifi, the interactive-fictionesque text/audio interface." style="">Webifi</a>
+              <span id="xlv3-copyright"></span>
+              <div id="xlv3-tools" class="xlv-toggleable" style="display:none">
+                <p id="xlv3-id" class="xlv-metadata">
+                  <b>Crossword ID:
+                     <span id="xlv3-id-span">xlv-#-sut25a</span></b>
+                </p>
+                <p id="xlv3-metadata" class="xlv-metadata">
+                  Exolve v1.47 December 19, 2022
+                  <a id="xlv3-report-bug" href="https://github.com/viresh-ratnakar/exolve/issues/new?body=Version%3A%20Exolve%20v1.47%20December%2019%2C%202022%2C%20User%20Agent%3A%20Mozilla%2F5.0%20(X11%3B%20Linux%20x86_64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F86.0.4240.111%20Safari%2F537.36">Report Bug</a>
+                  <a id="xlv3-exolve-link" title="Visit the Exolve open-source repository on GitHub, with a detailed user guide." href="https://github.com/viresh-ratnakar/exolve">Exolve on GitHub</a>
+                <br>Exolve-maker info:<br>
+<div style="margin:0 0 0 4ex">
+Converted by exolve-from-text.js from provided text</div></p>
+                <p>
+                  <button id="xlv3-manage-storage" class="xlv-small-button" title="View puzzle Ids for which state has been saved. Delete old saved states to free up local storage space if needed.">
+                    Manage local storage
+                  </button>
+                  </p><div id="xlv3-storage-list" class="xlv-storage-list" style="display:none">
+                  </div>
+                <p></p>
+                <p id="xlv3-tools-msg">
+                  
+       </p><p>Control keys:</p>
+       <ul>
+         <li><b>Tab/Shift-Tab:</b>
+             Jump to the next/previous clue in the current direction.</li>
+         <li><b>Enter, Click/Tap:</b> Toggle current direction.</li>
+         <li><b>Arrow keys:</b>
+             Move to the nearest light square in that direction.</li>
+         <li><b>Ctrl-q:</b> Clear this, <b>Ctrl-Q:</b> Clear All!,
+             <b>Ctrl-B:</b> Print crossword, <b>Ctrl-/:</b> Jump to notes,
+             <b>Ctrl-*:</b> Mark clue as fave in notes, adding a * prefix.</li>
+         <li><b>Spacebar:</b>
+             Place/clear block in the current square if it's diagramless.</li>
+       </ul>
+       <p>
+         Overwritten letters will briefly be coloured like
+         <b style="color:#ff00ff">this</b>
+         (before fading back to 
+         <b style="color:black">this</b>)
+         just to draw your attention so that you can fix any accidental
+         typing errors.
+       </p>
+                <p></p>
+                <p>
+                  <span id="xlv3-shuffle" class="xlv-shuffle" title="Shuffle selected text (or all text, if none selected).">Scratch pad: (click here to shuffle)</span>
+                  <textarea id="xlv3-scratchpad" class="xlv-scratchpad" spellcheck="false" rows="2" cols="48" style="color: darkgreen;"></textarea>
+                </p>
+              </div>
+              <div id="xlv3-print-settings" class="xlv-print-settings xlv-toggleable" style="display:none">
+                <p>
+                  <b>Print or create a PDF:</b>
+                </p>
+                <p>
+                  </p><div>
+                    Font size:
+                    <select name="xlv3-print-font" id="xlv3-print-font">
+                      <option value="18px">Normal</option>
+                      <option value="22px">Large</option>
+                      <option value="26px">Extra Large</option>
+                      <option value="14px">Small</option>
+                      <option value="other">Other</option>
+                    </select>
+                    <input class="xlv-input" id="xlv3-print-font-inp" name="xlv3-print-font-inp" size="5" value="18px">
+                    
+                  </div>
+                  <div>
+                    Page size:
+                    <select name="xlv3-page-size" id="xlv3-page-size">
+                      <option value="letter">Letter: 8.5in x 11in</option>
+                      <option value="A4">A4: 210mm x 297mm</option>
+                      <option value="A3">A3: 297mm x 420mm</option>
+                      <option value="A5">A5: 148mm x 210mm</option>
+                      <option value="B4">B4: 250mm x 353mm</option>
+                      <option value="B5">B5: 176mm x 250mm</option>
+                      <option value="legal">Legal: 8.5in x 14in</option>
+                      <option value="ledger">Ledger: 11in x 17in</option>
+                    </select>
+                  </div>
+                  <div>
+                    Margin (inches):
+                    <input class="xlv-input" id="xlv3-page-margin" name="xlv3-page-margin" size="5" value="0.5">
+                    
+                  </div>
+                  <div>
+                    <button id="xlv3-print-crossword" class="xlv-small-button" title="Print just this crossword, hiding any content outside it (Ctrl-B).">
+                      Print crossword
+                    </button>
+                    <button id="xlv3-print-page" class="xlv-small-button" title="Print the whole page (Ctrl-p or Cmd-p).">
+                      Print page
+                    </button>
+                    <button id="xlv3-print-wysiwyg" class="xlv-small-button" title="Print the whole page without reformatting the crossword.">
+                      Print wysiwyg
+                    </button>
+                  </div>
+                <p></p>
+              </div>
+              <div id="xlv3-notes-panel" class="xlv-notes-panel xlv-toggleable" style="display:none">
+  <div class="xlv-notes-header"> 
+    <div>
+      <button id="xlv3-notes-copy" title="Copy these notes to the clipboard, including any formatting." class="xlv-small-button">Copy notes</button>
+      <button id="xlv3-notes-email" title="Compose an email containing these notes as plain text. You can edit the draft before sending." class="xlv-small-button">Email notes</button>
+    </div>
+    <div>
+      <label for="xlv3-notes-seq">
+        Show clue-solving sequence:</label>
+      <input id="xlv3-notes-seq" checked="true" type="checkbox">
+    </div>
+    <div>
+      <label for="xlv3-notes-entries">
+        Show entered solutions:</label>
+      <input id="xlv3-notes-entries" checked="true" type="checkbox">
+    </div>
+    <div>
+      <label for="xlv3-notes-times">
+        Show clue-solving times:</label>
+      <input id="xlv3-notes-times" type="checkbox">
+    </div>
+    <ul class="xlv-notes-help"><li>Ctrl-/ takes you to the current clue's notes (or overall notes).</li><li>Ctrl-* adds a * prefix to the current clue's notes.</li><li>Hovering over a clue's notes shows the clue as a tooltip.</li></ul>
+  </div>
+  <div class="xlv-notes-contents" id="xlv3-notes-contents">
+    <style>
+    .xlv-clue-notes {
+      outline: none;
+      width: 60%;
+    }
+    .xlv-overall-notes {
+      background-image:
+        repeating-linear-gradient(to bottom, transparent, transparent 13px, silver 14px);
+      min-height: 3em;
+      outline: none;
+      width: 95%;
+    }
+    </style>
+    <div contenteditable="true" id="xlv3-overall-notes" class="xlv-overall-notes">
+    </div>
+    <div>
+      <p><b>Across</b></p>
+      <div style="border-bottom:1px solid lightgray" title="Composer of sound of the nation. (7)">
+        <b>1.</b>
+        <span id="xlv3-clue-solved-at-A1">
+        </span>
+        <span contenteditable="true" class="xlv-clue-notes" id="xlv3-clue-notes-A1">
+        </span>
+      </div>
+      <div style="border-bottom:1px solid lightgray" title="Carer for animals in mixed school is desired. (7)">
+        <b>5.</b>
+        <span id="xlv3-clue-solved-at-A5">
+        </span>
+        <span contenteditable="true" class="xlv-clue-notes" id="xlv3-clue-notes-A5">
+        </span>
+      </div>
+      <div style="border-bottom:1px solid lightgray" title="In Spain, a house without first luxury. (5)">
+        <b>9.</b>
+        <span id="xlv3-clue-solved-at-A9">
+        </span>
+        <span contenteditable="true" class="xlv-clue-notes" id="xlv3-clue-notes-A9">
+        </span>
+      </div>
+      <div style="border-bottom:1px solid lightgray" title="Old age makes ooze move and I clap too.(9)">
+        <b>10.</b>
+        <span id="xlv3-clue-solved-at-A10">
+        </span>
+        <span contenteditable="true" class="xlv-clue-notes" id="xlv3-clue-notes-A10">
+        </span>
+      </div>
+      <div style="border-bottom:1px solid lightgray" title="Speeds after state fairies. (6)">
+        <b>11.</b>
+        <span id="xlv3-clue-solved-at-A11">
+        </span>
+        <span contenteditable="true" class="xlv-clue-notes" id="xlv3-clue-notes-A11">
+        </span>
+      </div>
+      <div style="border-bottom:1px solid lightgray" title="Looking both ways sends shivers sharply. (8)">
+        <b>12.</b>
+        <span id="xlv3-clue-solved-at-A12">
+        </span>
+        <span contenteditable="true" class="xlv-clue-notes" id="xlv3-clue-notes-A12">
+        </span>
+      </div>
+      <div style="border-bottom:1px solid lightgray" title="Note in planner: back the deceiver. (5)">
+        <b>14.</b>
+        <span id="xlv3-clue-solved-at-A14">
+        </span>
+        <span contenteditable="true" class="xlv-clue-notes" id="xlv3-clue-notes-A14">
+        </span>
+      </div>
+      <div style="border-bottom:1px solid lightgray" title="Cut to getting out of Detroit. (4)">
+        <b>15.</b>
+        <span id="xlv3-clue-solved-at-A15">
+        </span>
+        <span contenteditable="true" class="xlv-clue-notes" id="xlv3-clue-notes-A15">
+        </span>
+      </div>
+      <div style="border-bottom:1px solid lightgray" title="Curly hair!? Get mother's initials or go back!(4)">
+        <b>16.</b>
+        <span id="xlv3-clue-solved-at-A16">
+        </span>
+        <span contenteditable="true" class="xlv-clue-notes" id="xlv3-clue-notes-A16">
+        </span>
+      </div>
+      <div style="border-bottom:1px solid lightgray" title="Retrieve - but it's missing first and cut into! (4)">
+        <b>20.</b>
+        <span id="xlv3-clue-solved-at-A20">
+        </span>
+        <span contenteditable="true" class="xlv-clue-notes" id="xlv3-clue-notes-A20">
+        </span>
+      </div>
+      <div style="border-bottom:1px solid lightgray" title="High Italian gets low woman. (4)">
+        <b>21.</b>
+        <span id="xlv3-clue-solved-at-A21">
+        </span>
+        <span contenteditable="true" class="xlv-clue-notes" id="xlv3-clue-notes-A21">
+        </span>
+      </div>
+      <div style="border-bottom:1px solid lightgray" title="Proud woman turned to stone. Nb: it's her element. (5)">
+        <b>22.</b>
+        <span id="xlv3-clue-solved-at-A22">
+        </span>
+        <span contenteditable="true" class="xlv-clue-notes" id="xlv3-clue-notes-A22">
+        </span>
+      </div>
+      <div style="border-bottom:1px solid lightgray" title="Venue for affront: 'I *could* do..' (8)">
+        <b>24.</b>
+        <span id="xlv3-clue-solved-at-A24">
+        </span>
+        <span contenteditable="true" class="xlv-clue-notes" id="xlv3-clue-notes-A24">
+        </span>
+      </div>
+      <div style="border-bottom:1px solid lightgray" title="In Fulham, Lettses play with a ghost. (6)">
+        <b>26.</b>
+        <span id="xlv3-clue-solved-at-A26">
+        </span>
+        <span contenteditable="true" class="xlv-clue-notes" id="xlv3-clue-notes-A26">
+        </span>
+      </div>
+      <div style="border-bottom:1px solid lightgray" title="With Spooner's red skin at the beach he made strange blotches. (9)">
+        <b>28.</b>
+        <span id="xlv3-clue-solved-at-A28">
+        </span>
+        <span contenteditable="true" class="xlv-clue-notes" id="xlv3-clue-notes-A28">
+        </span>
+      </div>
+      <div style="border-bottom:1px solid lightgray" title="Classical letter with gilded finale for singers. (5)">
+        <b>29.</b>
+        <span id="xlv3-clue-solved-at-A29">
+        </span>
+        <span contenteditable="true" class="xlv-clue-notes" id="xlv3-clue-notes-A29">
+        </span>
+      </div>
+      <div style="border-bottom:1px solid lightgray" title="Regular lean frog leg around the French to grow bigger. (7)">
+        <b>30.</b>
+        <span id="xlv3-clue-solved-at-A30">
+        </span>
+        <span contenteditable="true" class="xlv-clue-notes" id="xlv3-clue-notes-A30">
+        </span>
+      </div>
+      <div style="border-bottom:1px solid lightgray" title="See 5d (7)">
+        <b>31.</b>
+        <span id="xlv3-clue-solved-at-A31">
+        </span>
+        <span contenteditable="true" class="xlv-clue-notes" id="xlv3-clue-notes-A31">
+        </span>
+      </div>
+      <p><b>Down</b></p>
+      <div style="border-bottom:1px solid lightgray" title="Great idea to motion after brassiere (fashionable). (9)">
+        <b>1.</b>
+        <span id="xlv3-clue-solved-at-D1">
+        </span>
+        <span contenteditable="true" class="xlv-clue-notes" id="xlv3-clue-notes-D1">
+        </span>
+      </div>
+      <div style="border-bottom:1px solid lightgray" title="It's as we said to the 99th fool: mum's in. (9)">
+        <b>2.</b>
+        <span id="xlv3-clue-solved-at-D2">
+        </span>
+        <span contenteditable="true" class="xlv-clue-notes" id="xlv3-clue-notes-D2">
+        </span>
+      </div>
+      <div style="border-bottom:1px solid lightgray" title="Guides pirate queen (small). (8)">
+        <b>3.</b>
+        <span id="xlv3-clue-solved-at-D3">
+        </span>
+        <span contenteditable="true" class="xlv-clue-notes" id="xlv3-clue-notes-D3">
+        </span>
+      </div>
+      <div style="border-bottom:1px solid lightgray" title="Sleeps a period on back. (4)">
+        <b>4.</b>
+        <span id="xlv3-clue-solved-at-D4">
+        </span>
+        <span contenteditable="true" class="xlv-clue-notes" id="xlv3-clue-notes-D4">
+        </span>
+      </div>
+      <div style="border-bottom:1px solid lightgray" title="(and 31a) Do nerds call, wooing, around your street? (10)">
+        <b>5.</b>
+        <span id="xlv3-clue-solved-at-D5">
+        </span>
+        <span contenteditable="true" class="xlv-clue-notes" id="xlv3-clue-notes-D5">
+        </span>
+      </div>
+      <div style="border-bottom:1px solid lightgray" title="Part of strings and first violets mixed in oil. (6)">
+        <b>6.</b>
+        <span id="xlv3-clue-solved-at-D6">
+        </span>
+        <span contenteditable="true" class="xlv-clue-notes" id="xlv3-clue-notes-D6">
+        </span>
+      </div>
+      <div style="border-bottom:1px solid lightgray" title="Tiny bottom made internal wrath on girl. (5)">
+        <b>7.</b>
+        <span id="xlv3-clue-solved-at-D7">
+        </span>
+        <span contenteditable="true" class="xlv-clue-notes" id="xlv3-clue-notes-D7">
+        </span>
+      </div>
+      <div style="border-bottom:1px solid lightgray" title="Dangerous, like a cube. (5)">
+        <b>8.</b>
+        <span id="xlv3-clue-solved-at-D8">
+        </span>
+        <span contenteditable="true" class="xlv-clue-notes" id="xlv3-clue-notes-D8">
+        </span>
+      </div>
+      <div style="border-bottom:1px solid lightgray" title="Before golf with a pal, a Clooney? Join! (10)">
+        <b>13.</b>
+        <span id="xlv3-clue-solved-at-D13">
+        </span>
+        <span contenteditable="true" class="xlv-clue-notes" id="xlv3-clue-notes-D13">
+        </span>
+      </div>
+      <div style="border-bottom:1px solid lightgray" title="Broken toe of LSO first oboe, gets unanchored. (9)">
+        <b>17.</b>
+        <span id="xlv3-clue-solved-at-D17">
+        </span>
+        <span contenteditable="true" class="xlv-clue-notes" id="xlv3-clue-notes-D17">
+        </span>
+      </div>
+      <div style="border-bottom:1px solid lightgray" title="Proposals: open before sure? Uncertain. (9)">
+        <b>18.</b>
+        <span id="xlv3-clue-solved-at-D18">
+        </span>
+        <span contenteditable="true" class="xlv-clue-notes" id="xlv3-clue-notes-D18">
+        </span>
+      </div>
+      <div style="border-bottom:1px solid lightgray" title="Moving nan with cheer means that it improves. (8)">
+        <b>19.</b>
+        <span id="xlv3-clue-solved-at-D19">
+        </span>
+        <span contenteditable="true" class="xlv-clue-notes" id="xlv3-clue-notes-D19">
+        </span>
+      </div>
+      <div style="border-bottom:1px solid lightgray" title="Endless EU experiment before daughter is a crusher. (6)">
+        <b>23.</b>
+        <span id="xlv3-clue-solved-at-D23">
+        </span>
+        <span contenteditable="true" class="xlv-clue-notes" id="xlv3-clue-notes-D23">
+        </span>
+      </div>
+      <div style="border-bottom:1px solid lightgray" title="Swipe back electronic boat. (5)">
+        <b>24.</b>
+        <span id="xlv3-clue-solved-at-D24">
+        </span>
+        <span contenteditable="true" class="xlv-clue-notes" id="xlv3-clue-notes-D24">
+        </span>
+      </div>
+      <div style="border-bottom:1px solid lightgray" title="Country's right mountain (5)">
+        <b>25.</b>
+        <span id="xlv3-clue-solved-at-D25">
+        </span>
+        <span contenteditable="true" class="xlv-clue-notes" id="xlv3-clue-notes-D25">
+        </span>
+      </div>
+      <div style="border-bottom:1px solid lightgray" title="Old politician in president's pad on social media. (4)">
+        <b>27.</b>
+        <span id="xlv3-clue-solved-at-D27">
+        </span>
+        <span contenteditable="true" class="xlv-clue-notes" id="xlv3-clue-notes-D27">
+        </span>
+      </div></div></div></div>
+            </div> <!-- xlv-small-print -->
+            <div id="xlv3-questions" class="xlv-wide-box xlv-questions"></div>
+            <div id="xlv3-submit-parent" class="xlv-submit">
+              <button id="xlv3-submit" class="xlv-button" style="display:none">Submit</button>
+            </div> <!-- submit-parent -->
+            <div id="xlv3-explanations" class="xlv-wide-box
+                xlv-explanations" style="display:none"></div>
+          </div> <!-- xlv-controls-etc -->
+        </div> <!-- xlv-grid-panel -->
+        <div id="xlv3-clues" class="xlv-clues xlv-clues-flex">
+          
+          
+          <div class="xlv-clues-panel" style="display:none">
+            <div id="xlv3-z3d-label" class="xlv-clues-box xlv-clues-label" style="width: 480px;">
+              <hr>
+              Down &amp; Up
+            </div>
+            <div id="xlv3-z3d-clues-panel" class="xlv-clues-box" style="width: 480px;">
+              <table id="xlv3-z3d"></table>
+            </div>
+          </div><div class="xlv-clues-panel" style="display:none">
+            <div id="xlv3-nodir-label" class="xlv-clues-box xlv-clues-label" style="width: 480px;">
+              <hr>
+            </div>
+            <div id="xlv3-nodir-clues-panel" class="xlv-clues-box" style="width: 480px;">
+              <table id="xlv3-nodir"></table>
+            </div>
+          </div><div class="xlv-clues-panel" style="">
+            <div id="xlv3-across-label" class="xlv-clues-box xlv-clues-label" style="width: 480px;">
+              <hr>
+              Across
+            </div>
+            <div id="xlv3-across-clues-panel" class="xlv-clues-box" style="width: 480px;">
+              <table id="xlv3-across"><tr class="" style="background: mistyrose;"><td>1</td><td><span>Composer of sound of the nation. (7)</span><span class="xlv-anno-text" style="color: darkgreen; display: none;"></span></td></tr><tr class=""><td>5</td><td><span>Carer for animals in mixed school is desired. (7)</span><span class="xlv-anno-text" style="color: darkgreen; display: none;"></span></td></tr><tr class=""><td>9</td><td><span>In Spain, a house without first luxury. (5)</span><span class="xlv-anno-text" style="color: darkgreen; display: none;"></span></td></tr><tr class=""><td>10</td><td><span>Old age makes ooze move and I clap too.(9)</span><span class="xlv-anno-text" style="color: darkgreen; display: none;"></span></td></tr><tr class=""><td>11</td><td><span>Speeds after state fairies. (6)</span><span class="xlv-anno-text" style="color: darkgreen; display: none;"></span></td></tr><tr class=""><td>12</td><td><span>Looking both ways sends shivers sharply. (8)</span><span class="xlv-anno-text" style="color: darkgreen; display: none;"></span></td></tr><tr class=""><td>14</td><td><span>Note in planner: back the deceiver. (5)</span><span class="xlv-anno-text" style="color: darkgreen; display: none;"></span></td></tr><tr class=""><td>15</td><td><span>Cut to getting out of Detroit. (4)</span><span class="xlv-anno-text" style="color: darkgreen; display: none;"></span></td></tr><tr class=""><td>16</td><td><span>Curly hair!? Get mother's initials or go back!(4)</span><span class="xlv-anno-text" style="color: darkgreen; display: none;"></span></td></tr><tr class=""><td>20</td><td><span>Retrieve - but it's missing first and cut into! (4)</span><span class="xlv-anno-text" style="color: darkgreen; display: none;"></span></td></tr><tr class=""><td>21</td><td><span>High Italian gets low woman. (4)</span><span class="xlv-anno-text" style="color: darkgreen; display: none;"></span></td></tr><tr class=""><td>22</td><td><span>Proud woman turned to stone. Nb: it's her element. (5)</span><span class="xlv-anno-text" style="color: darkgreen; display: none;"></span></td></tr><tr class=""><td>24</td><td><span>Venue for affront: 'I *could* do..' (8)</span><span class="xlv-anno-text" style="color: darkgreen; display: none;"></span></td></tr><tr class=""><td>26</td><td><span>In Fulham, Lettses play with a ghost. (6)</span><span class="xlv-anno-text" style="color: darkgreen; display: none;"></span></td></tr><tr class=""><td>28</td><td><span>With Spooner's red skin at the beach he made strange blotches. (9)</span><span class="xlv-anno-text" style="color: darkgreen; display: none;"></span></td></tr><tr class=""><td>29</td><td><span>Classical letter with gilded finale for singers. (5)</span><span class="xlv-anno-text" style="color: darkgreen; display: none;"></span></td></tr><tr class=""><td>30</td><td><span>Regular lean frog leg around the French to grow bigger. (7)</span><span class="xlv-anno-text" style="color: darkgreen; display: none;"></span></td></tr><tr class=""><td>31</td><td><span>See 5d (7)</span><span class="xlv-anno-text" style="color: darkgreen; display: none;"></span></td></tr></table>
+            </div>
+          </div><div class="xlv-clues-panel" style="">
+            <div id="xlv3-down-label" class="xlv-clues-box xlv-clues-label" style="width: 480px;">
+              <hr>
+              Down
+            </div>
+            <div id="xlv3-down-clues-panel" class="xlv-clues-box" style="width: 480px;">
+              <table id="xlv3-down"><tr class=""><td>1</td><td><span>Great idea to motion after brassiere (fashionable). (9)</span><span class="xlv-anno-text" style="color: darkgreen; display: none;"></span></td></tr><tr class=""><td>2</td><td><span>It's as we said to the 99th fool: mum's in. (9)</span><span class="xlv-anno-text" style="color: darkgreen; display: none;"></span></td></tr><tr class=""><td>3</td><td><span>Guides pirate queen (small). (8)</span><span class="xlv-anno-text" style="color: darkgreen; display: none;"></span></td></tr><tr class=""><td>4</td><td><span>Sleeps a period on back. (4)</span><span class="xlv-anno-text" style="color: darkgreen; display: none;"></span></td></tr><tr class=""><td>5</td><td><span>(and 31a) Do nerds call, wooing, around your street? (10)</span><span class="xlv-anno-text" style="color: darkgreen; display: none;"></span></td></tr><tr class=""><td>6</td><td><span>Part of strings and first violets mixed in oil. (6)</span><span class="xlv-anno-text" style="color: darkgreen; display: none;"></span></td></tr><tr class=""><td>7</td><td><span>Tiny bottom made internal wrath on girl. (5)</span><span class="xlv-anno-text" style="color: darkgreen; display: none;"></span></td></tr><tr class=""><td>8</td><td><span>Dangerous, like a cube. (5)</span><span class="xlv-anno-text" style="color: darkgreen; display: none;"></span></td></tr><tr class=""><td>13</td><td><span>Before golf with a pal, a Clooney? Join! (10)</span><span class="xlv-anno-text" style="color: darkgreen; display: none;"></span></td></tr><tr class=""><td>17</td><td><span>Broken toe of LSO first oboe, gets unanchored. (9)</span><span class="xlv-anno-text" style="color: darkgreen; display: none;"></span></td></tr><tr class=""><td>18</td><td><span>Proposals: open before sure? Uncertain. (9)</span><span class="xlv-anno-text" style="color: darkgreen; display: none;"></span></td></tr><tr class=""><td>19</td><td><span>Moving nan with cheer means that it improves. (8)</span><span class="xlv-anno-text" style="color: darkgreen; display: none;"></span></td></tr><tr class=""><td>23</td><td><span>Endless EU experiment before daughter is a crusher. (6)</span><span class="xlv-anno-text" style="color: darkgreen; display: none;"></span></td></tr><tr class=""><td>24</td><td><span>Swipe back electronic boat. (5)</span><span class="xlv-anno-text" style="color: darkgreen; display: none;"></span></td></tr><tr class=""><td>25</td><td><span>Country's right mountain (5)</span><span class="xlv-anno-text" style="color: darkgreen; display: none;"></span></td></tr><tr class=""><td>27</td><td><span>Old politician in president's pad on social media. (4)</span><span class="xlv-anno-text" style="color: darkgreen; display: none;"></span></td></tr></table>
+            </div>
+          </div>
+          
+        </div> <!-- xlv-clues -->
+      </div> <!-- xlv-grid-and-clues-flex -->
+    <style id="xlv3-added-style">
+    #xlv3-frame .xlv-curr-clue {
+      top: 0;
+    }
+    #xlv3-frame span.xlv-solved,
+    #xlv3-frame .xlv-solved td:first-child {
+      color: dodgerblue;
+    }
+    #xlv3-frame .xlv-definition {
+      text-decoration-color: #3eb0ff;
+    }
+    #xlv3-frame .xlv-solution {
+      color: dodgerblue;
+    }
+    #xlv3-status {
+      color: darkgreen;
+    }
+    #xlv3-frame .xlv-button {
+      background: #4caf50;
+      color: white;
+    }
+    #xlv3-frame .xlv-button:hover {
+      background: darkgreen;
+    }
+    #xlv3-frame .xlv-button:disabled {
+      background: gray;
+    }
+    #xlv3-frame .xlv-small-button {
+      background: inherit;
+      color: darkgreen;
+    }
+    #xlv3-frame .xlv-small-button:hover {
+      background: lightpink;
+    }
+    @keyframes xlv3-overwritten-anim {
+      0% {fill: #ff00ff}
+      90% {fill: #bb00bb}
+      95% {fill: #ff00ff}
+      99% {fill: #bb00bb}
+    }
+    #xlv3-frame .xlv-overwritten {
+      animation-duration: 5000ms;
+      animation-name: xlv3-overwritten-anim;
+    }
+  </style></div> <!-- xlv-frame -->
+  </div>
