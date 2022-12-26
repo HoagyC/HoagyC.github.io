@@ -1,3 +1,103 @@
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="exolve-m.css?v1.47">
+<script src="exolve-m.js?v1.47"></script>
+<script src="exolve-from-ipuz.js?v1.47"></script>
+<script src="exolve-from-puz.js?v1.47"></script>
+<script src="exolve-from-text.js?v1.47"></script>
+
+<style>
+.xlvp-wait {
+  cursor: wait;
+}
+#xlvp-player {
+  border: 1px solid black;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px 4%;
+  margin: 20px 0;
+  font-size: 16px;
+  font-family: monospace;
+  background-image: linear-gradient(45deg, #f8f8f8 25%, transparent 25%), linear-gradient(-45deg, #f8f8f8 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #f8f8f8 75%), linear-gradient(-45deg, transparent 75%, #f8f8f8 75%);
+  background-size: 40px 40px;
+  background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+}
+summary {
+  background: gainsboro;
+  padding: 4px 6px;
+  border: 1px solid gray;
+  cursor: pointer;
+  font-size: 70%;
+}
+pre,
+#xlvp-help {
+  border: 1px solid gray;
+  background: white;
+  padding: 8px;
+}
+#xlvp-text,
+#xlvp-chooser {
+  margin-top: 10px;
+}
+.xlvp-hscroll {
+  overflow-x: auto;
+}
+.xlvp-chooser-entry {
+  background: white;
+  padding: 4px 0px 6px 12px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+.xlvp-chooser-entry-sel {
+  background: lightgray !important;
+}
+.xlvp-chooser-entry:hover {
+  background: lightgreen;
+  border: 1px solid darkgreen;
+}
+.xlvp-list {
+  padding-left: 14px;
+}
+.xlvp-list li + li {
+  margin-top: 16px;
+}
+.xlvp-button,
+.xlvp-button-working {
+  padding: 2px 6px;
+}
+.xlvp-button:hover:enabled {
+  background: lightgreen;
+}
+.xlvp-button-working {
+  background: lightpink;
+  font-weight: bold;
+}
+#xlvp-infer-msg {
+  color: red;
+  display: inline-block;
+  font-size: small;
+  font-style: italic;
+  margin: 4px 0 0 0;
+}
+#xlvp-multiple-msg {
+  margin-top: 16px;
+  background: lightgreen;
+  padding: 4px;
+  border-bottom: 1px solid black;
+}
+#xlvp-save,
+#xlvp-view {
+  margin-top: 10px;
+}
+#xlvp-last-crossword {
+  float: right;
+}
+</style>
+
+<title>Exolve Player</title>
+
+<script src="https://viresh-ratnakar.github.io/webifi.js"></script><script src="https://viresh-ratnakar.github.io/words-webifi.js"></script><script src="https://viresh-ratnakar.github.io/crossword-webifi.js"></script><script src="https://viresh-ratnakar.github.io/lufz-en-lexicon.js"></script><script src="https://viresh-ratnakar.github.io/exet-lexicon.js"></script></head>
 <div id="xlvp-frame">
     <div id="webifi-root" class="webifi-root" style="display: none;">
     <style>
